@@ -74,13 +74,13 @@ class Admin extends CI_Controller {
 	}
 	// =========================================
 
-	public function aboutUs($id)
-	{   
-		$data['title']='NGO - Admin | About Us';
-		$data['pageName']='About Us';
-		$data['page_data']=$this->AM->show_page_data($id);
-		$this->load->view('admin/aboutUs',$data);
-	}
+	// public function aboutUs($id)
+	// {   
+	// 	$data['title']='NGO - Admin | About Us';
+	// 	$data['pageName']='About Us';
+	// 	$data['page_data']=$this->AM->show_page_data($id);
+	// 	$this->load->view('admin/aboutUs',$data);
+	// }
 	// =========================================
 
 }
