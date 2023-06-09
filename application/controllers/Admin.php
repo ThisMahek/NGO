@@ -48,14 +48,13 @@ class Admin extends CI_Controller {
         $data['tab_data']=$this->AM->show_tab_data();
 		$this->load->view('admin/ViewTabs',$data);
 	}
-	public function editTabs($id)
-	{   
-		$data['title']='NGO - Admin | Edit Tabs';
-		$data['pageName']='Edit Tabs';
-		$data['tab_data']=$this->AM->show_single_tab_data($id);
-
-		$this->load->view('admin/editTabs',$data);
-	}
+	// public function editTabs($id)
+	// {   
+	// 	$data['title']='NGO - Admin | Edit Tabs';
+	// 	$data['pageName']='Edit Tabs';
+	// 	$data['tab_data']=$this->AM->show_single_tab_data($id);
+	// 	$this->load->view('admin/editTabs',$data);
+	// }
 	// =========================================
 	// ================Dash Board=============
 
@@ -82,5 +81,6 @@ class Admin extends CI_Controller {
 		$data['page_data']=$this->AM->show_page_data($id);
 		$this->load->view('admin/aboutUs',$data);
 	}
-	// =======================================
+	// =========================================
+
 }
