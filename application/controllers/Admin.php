@@ -3,10 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 	public function __construct()
     {
         parent::__construct();
@@ -33,10 +30,6 @@ class Admin extends CI_Controller {
 
 	public function addTabs()
 	{   
-<<<<<<< HEAD
-=======
-
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 		$data['title']='NGO - Admin | Add Tabs';
 		$data['pageName']='Add Tabs';
 		$this->load->view('admin/addTabs',$data);
@@ -45,7 +38,6 @@ class Admin extends CI_Controller {
 	{   
 		$data['title']='NGO - Admin | View Tabs';
 		$data['pageName']='View Tabs';
-<<<<<<< HEAD
 		$data['tab_data']=$this->AM->show_tab_data();
 		$this->load->view('admin/ViewTabs',$data);
 	}
@@ -56,11 +48,6 @@ class Admin extends CI_Controller {
     //     $data['tab_data']=$this->AM->show_tab_data();
 	// 	$this->load->view('admin/ViewTabs',$data);
 	// }
-=======
-        $data['tab_data']=$this->AM->show_tab_data();
-		$this->load->view('admin/ViewTabs',$data);
-	}
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 	public function editTabs($id)
 	{   
 		$data['title']='NGO - Admin | Edit Tabs';
@@ -70,7 +57,6 @@ class Admin extends CI_Controller {
 	}
 	// =========================================
 	// ================Dash Board=============
-<<<<<<< HEAD
 
 	// public function aboutUs()
 	// {   
@@ -88,22 +74,13 @@ class Admin extends CI_Controller {
 	}
 	// =========================================
 
-=======
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 	public function aboutUs($id)
 	{   
 		$data['title']='NGO - Admin | About Us';
 		$data['pageName']='About Us';
-<<<<<<< HEAD
 		$data['page_data']=$this->AM->show_single_tab_data($id);
 		$this->load->view('admin/aboutUs',$data);
 	}
 	// =========================================
 
-=======
-		$data['page_data']=$this->AM->show_page_data($id);
-		$this->load->view('admin/aboutUs',$data);
-	}
-	// =========================================
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 }
