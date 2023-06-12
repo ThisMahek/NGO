@@ -7,6 +7,9 @@ class AdminBackend extends CI_Controller
     {
         parent::__construct();
         $this->load->model("Common_model", "CM");
+        if (!$this->session->userdata('admin_id')) {
+			redirect(base_url() . "admin/login");
+		}
     }
     public function add_and_edit_nav()
     {
@@ -18,8 +21,8 @@ class AdminBackend extends CI_Controller
         $insert_array['status'] = $this->input->post('status');
         $insert_array['content'] = $this->input->post('editor1');
         //start image
-        if (isset($_FILES["input_file"]) && !empty($_FILES["input_file"])) {
-            $file = $_FILES["input_file"];
+        if (isset($_FILES["image"]) && !empty($_FILES["image"])) {
+            $file = $_FILES["image"];
             $MyFileName = "";
             if (strlen($file['name']) > 0) {
                 $image = $file["name"];
@@ -30,10 +33,10 @@ class AdminBackend extends CI_Controller
                 // $config['max_height'] = 10000;
                 $config['file_name'] = $image;
                 $this->load->library("upload", $config);
-                $filestatus = $this->upload->do_upload('input_file"');
+                $filestatus = $this->upload->do_upload('image');
                 if ($filestatus == true) {
                     $MyFileName = $this->upload->data('file_name');
-                    $insert_array['image'] = "/assets/images/" . $MyFileName;
+                    $insert_array['image'] = "assets/images/" . $MyFileName;
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $result = $error;

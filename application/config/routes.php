@@ -55,5 +55,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['ngoList'] = 'user/ngoList';
 $route['page/(:any)'] = "admin/aboutUs/$1";
+$route['admin/login'] = "AdminLogin/login";
+$route['admin/logout'] = "AdminLogin/LogoutAdmin";
+
 
 
