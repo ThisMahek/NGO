@@ -38,32 +38,32 @@ class Admin extends CI_Controller {
 	{   
 		$data['title']='NGO - Admin | View Tabs';
 		$data['pageName']='View Tabs';
- 
+		$data['tab_data']=$this->AM->show_tab_data();
 		$this->load->view('admin/ViewTabs',$data);
 	}
-	public function editTabs()
-	{   
-		$data['title']='NGO - Admin | Edit Tabs';
-		$data['pageName']='Edit Tabs';
-        $data['tab_data']=$this->AM->show_tab_data();
-		$this->load->view('admin/ViewTabs',$data);
-	}
-	// public function editTabs($id)
+	// public function editTabs()
 	// {   
 	// 	$data['title']='NGO - Admin | Edit Tabs';
 	// 	$data['pageName']='Edit Tabs';
-	// 	$data['tab_data']=$this->AM->show_single_tab_data($id);
-	// 	$this->load->view('admin/editTabs',$data);
+    //     $data['tab_data']=$this->AM->show_tab_data();
+	// 	$this->load->view('admin/ViewTabs',$data);
 	// }
+	public function editTabs($id)
+	{   
+		$data['title']='NGO - Admin | Edit Tabs';
+		$data['pageName']='Edit Tabs';
+		$data['tab_data']=$this->AM->show_single_tab_data($id);
+		$this->load->view('admin/editTabs',$data);
+	}
 	// =========================================
 	// ================Dash Board=============
 
-	public function aboutUs()
-	{   
-		$data['title']='NGO - Admin | About Us';
-		$data['pageName']='About Us';
-		$this->load->view('admin/aboutUs',$data);
-	}
+	// public function aboutUs()
+	// {   
+	// 	$data['title']='NGO - Admin | About Us';
+	// 	$data['pageName']='About Us';
+	// 	$this->load->view('admin/aboutUs',$data);
+	// }
 	// =========================================
 	// ================Dash Board=============
 	public function ViewNgo()
@@ -74,13 +74,13 @@ class Admin extends CI_Controller {
 	}
 	// =========================================
 
-	// public function aboutUs($id)
-	// {   
-	// 	$data['title']='NGO - Admin | About Us';
-	// 	$data['pageName']='About Us';
-	// 	$data['page_data']=$this->AM->show_page_data($id);
-	// 	$this->load->view('admin/aboutUs',$data);
-	// }
+	public function aboutUs($id)
+	{   
+		$data['title']='NGO - Admin | About Us';
+		$data['pageName']='About Us';
+		$data['page_data']=$this->AM->show_single_tab_data($id);
+		$this->load->view('admin/aboutUs',$data);
+	}
 	// =========================================
 
 }

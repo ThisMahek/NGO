@@ -7,7 +7,7 @@
     <meta name="author" content="" />
 
     <!-- Title  -->
-    <title>Sarv Seva</title>
+    <title><?php echo $title; ?> </title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?php echo base_url();?>user_assets/img/logo_home5.png" title="Favicon" sizes="16x16" />
@@ -43,4 +43,5 @@
         .bdr-bottom{border-bottom: 1px solid grey;}
         .bdr-left{border-left: 1px solid ;}
         .text-white{color:#fff;}
+        .text-justify{text-align: justify;}
     </style>

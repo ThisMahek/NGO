@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-2 col-md-1 pl-0">
                                     <div class="nav-side bdr-left">
-                                        <a href="#" class="">
+                                        <a href="<?php echo base_url();?>ngoList" class="">
                                             <i class="la la-search fs-4 sOpen-btn"></i>
                                             <i class="la la-close fs-4 sClose-btn"></i>
                                         </a>

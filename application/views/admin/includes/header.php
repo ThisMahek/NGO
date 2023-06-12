@@ -12,12 +12,7 @@
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-<<<<<<< HEAD
                     <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#changePassword"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Change Password</a>
-=======
-                    <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="ti ti-settings font-16 me-1 align-text-bottom"></i> Change Password</a>
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
                     <div class="dropdown-divider mb-0"></div>
                     <a class="dropdown-item" href="#"><i class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout</a>
                 </div>
@@ -37,7 +32,6 @@
             </li>                       
         </ul>
     </nav>
-<<<<<<< HEAD
 </div>
 
 <!-- ===============Change Password Modal============= -->
@@ -69,6 +63,4 @@
   </div>
 </div>
 <!-- ================================================= -->
-=======
 </div>
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f

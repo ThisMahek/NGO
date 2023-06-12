@@ -1,3 +1,4 @@
+<?php  $data=$this->db->where('status','Active')->get('nav')->result();?>
 <nav class="navbar navbar-expand-lg navbar-light style-5">
     <div class="container p-0">
         <div class="mob-nav-toggles d-flex align-items-center justify-content-between">
@@ -19,12 +20,16 @@
                         homes
                     </a>
                 </li>
+                <?php
+                foreach($data as $row){
+                ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" >
-                        Blog
+                    <a class="nav-link" href="<?=base_url()?>user/ngoList" >
+                        <?=$row->tab_name?>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
+                <?php }?>
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link" href="#" >
                         Single posts
                     </a>
@@ -44,19 +49,8 @@
                     <a class="nav-link" href="">
                         shop
                     </a>
-                </li>
+                </li> -->
             </ul>
-            <div class="side-navbar pb-4 pb-lg-0">
-                <div class="sub-darkLight">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active d-sm-none d-md-block" href="#" >
-                        <i class="la la-plus fs-4 sOpen-btn"></i> Register your NGO
-                        </a>
-                    </li>
-                </ul>
-                    <!-- <a href="#" class="d-sm-none d-md-block p-2 nav-link" type="button">Register</a> -->
-                </div>
             </div>
         </div>
     </div>

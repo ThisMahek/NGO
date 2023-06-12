@@ -76,15 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-<<<<<<< HEAD
-	'username' => '',
-	'password' => '',
-	'database' => '',
-=======
 	'username' => 'root',
 	'password' => '',
 	'database' => 'ngo',
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

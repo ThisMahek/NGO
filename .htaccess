@@ -1,9 +1,5 @@
 RewriteEngine on
-<<<<<<< HEAD
 RewriteCond $1 !^(index\.php|user_assets|assets|images|css|uploads|favicon.png)
-=======
-RewriteCond $1 !^(index\.php|assets|images|css|uploads|favicon.png)
->>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 RewriteCond %(REQUEST_FILENAME) !-f
 RewriteCond %(REQUEST_FILENAME) !-d
 RewriteRule ^(.*)$ ./index.php/$1 [L]
