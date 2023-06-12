@@ -2,7 +2,12 @@
 <footer class="footer text-center text-sm-start">
   &copy; <script>
   document.write(new Date().getFullYear())
+<<<<<<< HEAD
   </script>  <span class="text-muted d-none d-sm-inline-block float-end">Design & Developed By  <i class="mdi mdi-heart text-danger"></i> by DevTeam</span>
+=======
+  </script>  <span class="text-muted d-none d-sm-inline-block float-end">Design & Developed By  <i
+  class="mdi mdi-heart text-danger"></i> by DevTeam</span>
+>>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 </footer>
 </div>
 </div>   
@@ -18,6 +23,10 @@
 <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 <script>
   CKEDITOR.replace('editor1');
+<<<<<<< HEAD
 </script>
 </script>
 
+=======
+</script>
+>>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f

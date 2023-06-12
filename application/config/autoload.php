@@ -60,7 +60,10 @@ $autoload['packages'] = array();
 */
 $autoload['libraries'] = array('database', 'email', 'session');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers

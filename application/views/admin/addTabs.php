@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<<<<<<< HEAD
 <head>
     <?php include_once("includes/common-head.php"); ?>
 </head>
+=======
+
+<head>
+    <?php include_once("includes/common-head.php"); ?>
+</head>
+
+>>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 <body id="body">
     <?php include_once("includes/sidebar.php"); ?>
     <?php include_once("includes/header.php"); ?>
@@ -67,4 +75,8 @@
             </div>
             <?php include_once("includes/footer.php"); ?>
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74bf1d36172d554921bee7712d70db70c547ce3f
 </html>
