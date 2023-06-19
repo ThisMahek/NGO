@@ -294,7 +294,7 @@
 
 
         <!-- ====== start banner11 ====== -->
-        <section class="banner11">
+        <!-- <section class="banner11">
             <div class="container">
                 <div class="content pt-60 pb-60 border-top border-bottom border-1 brd-gray">
                     <div class="row justify-content-center">
@@ -306,7 +306,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- ====== end banner11 ====== -->
 
 
