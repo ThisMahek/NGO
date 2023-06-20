@@ -44,4 +44,9 @@
         .bdr-left{border-left: 1px solid ;}
         .text-white{color:#fff;}
         .text-justify{text-align: justify;}
+        .modal-header{background-color: #3c5c6e;color: #fff;}
+        .btn-close{background: transparent;}
+        .text-white{color:#fff;}
+        .text-bold{font-weight:bold;}
+        .btn-close:focus {box-shadow: none;}
     </style>

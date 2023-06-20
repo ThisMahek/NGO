@@ -54,9 +54,14 @@ $route['default_controller'] = 'user';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['ngoList'] = 'user/ngoList';
+$route['aboutUs'] = 'user/aboutUs';
 $route['page/(:any)'] = "admin/aboutUs/$1";
 $route['admin/login'] = "AdminLogin/login";
 $route['admin/logout'] = "AdminLogin/LogoutAdmin";
 
 
 
+// =============Client=============
+$route['addRequirements'] = "client/addRequirements";
+$route['ViewRequirements'] = "client/ViewRequirements";
+// ================================

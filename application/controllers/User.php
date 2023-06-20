@@ -17,5 +17,12 @@ class User extends CI_Controller {
 		$this->load->view('ngoList',$data);
 
 	}
+	public function aboutUs()
+	{
+		$data['title']='Sarv Seva -About Us';
+		$data['pageName']='About Us';
+		$this->load->view('aboutUs',$data);
+
+	}
 
 }
