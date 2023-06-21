@@ -25,9 +25,9 @@ class AdminLogin extends CI_Controller
                 $data = array(
                     'admin_id' => $res->id,
                     'email' => $res->email,
-                    'mobile' => $res->mobile,
-                    'role' => $res->role,
-                    'admin_logged_in' => true
+                    // 'mobile' => $res->mobile,
+                    // 'role' => $res->role,
+                    // 'admin_logged_in' => true
                 );
                 $this->session->set_userdata($data);
                 $this->session->set_flashdata('success', '<script>
@@ -74,7 +74,7 @@ class AdminLogin extends CI_Controller
         $password = md5($this->input->post('password'));
         if ($password == $current) {
             $newpassword = md5($this->input->post('password1'));
-            $response=$this->AM->change_password($newpassword);
+            $response = $this->AM->change_password($newpassword);
             if ($response) {
                 $this->session->set_flashdata('success', '<script>
                 swal({

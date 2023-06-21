@@ -17,7 +17,7 @@
               class="ti ti-settings font-16 me-1 align-text-bottom"></i> Change Password</a>
           <a class="dropdown-item" href="#"><i class="ti ti-user font-16 me-1 align-text-bottom"></i> Profile</a>
           <div class="dropdown-divider mb-0"></div>
-          <a class="dropdown-item" onclick="logout('<?= base_url() ?>admin/logout')"><i
+          <a class="dropdown-item" onclick="logout('<?= base_url() ?>UserLogin/user_logout')"><i
               class="ti ti-power font-16 me-1 align-text-bottom"></i> Logout</a>
         </div>
       </li>
@@ -47,7 +47,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="my-4" action="<?= base_url() ?>AdminLogin/change_AdminPassword" method="post">
+        <form class="my-4" action="<?= base_url() ?>UserLogin/change_UserPassword" method="post">
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Current Password</label>
             <input type="password" name="password" class="form-control" id="currentPassword" required>

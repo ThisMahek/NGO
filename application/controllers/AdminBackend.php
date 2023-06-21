@@ -8,8 +8,8 @@ class AdminBackend extends CI_Controller
         parent::__construct();
         $this->load->model("Common_model", "CM");
         if (!$this->session->userdata('admin_id')) {
-			redirect(base_url() . "admin/login");
-		}
+            redirect(base_url() . "admin/login");
+        }
     }
     public function add_and_edit_nav()
     {
@@ -40,8 +40,6 @@ class AdminBackend extends CI_Controller
                 } else {
                     $error = array('error' => $this->upload->display_errors());
                     $result = $error;
-                    print_r($result);
-                    exit;
                 }
             }
         }
@@ -57,24 +55,32 @@ class AdminBackend extends CI_Controller
                 $msg = 'updated';
             }
             if ($response) {
-                $this->session->set_flashdata("success", '<div class="alert alert-success alert-dismissible" role="alert">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <strong>Success!</strong> Your request ' . $msg . ' successfully...
-            </div>');
+                $this->session->set_flashdata('success', '<script>
+		swal({
+			title: "Your request",
+			text: " ' . $msg . ' Successfully!",
+			icon: "success",
+			});
+		</script>');
             } else {
-                $this->session->set_flashdata("error", '<div class="alert alert-danger alert-dismissible" role="alert">
-                <i class="fa fa-check"></i>
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <strong>Error!</strong>Unable to ' . $msg . ' your request....
-                </div>');
+                $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Unable to ' . $msg . ' your request",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
             }
         } else {
-            $this->session->set_flashdata("error", '<div class="alert alert-danger alert-dismissible" role="alert">
-                <i class="fa fa-check"></i>
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <strong>Error!</strong>This order no already exists...
-                </div>');
+            $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "This order no already exists",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
         }
         if ($this->input->post('page') == 'page') {
             redirect("page/$id");
@@ -88,18 +94,22 @@ class AdminBackend extends CI_Controller
         $array['status'] = 2;
         $response = $this->CM->data_update('nav', $array, array('id' => $id));
         if ($response) {
-            $this->session->set_flashdata("success", '<div class="alert alert-success alert-dismissible" role="alert">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <strong>Success!</strong> Your request deleted successfully...
-            </div>');
+            $this->session->set_flashdata('success', '<script>
+            swal({
+                title: "Your request",
+                text: "deleted successfully!",
+                icon: "success",
+                });
+            </script>');
         } else {
-            $this->session->set_flashdata("error", '<div class="alert alert-danger alert-dismissible" role="alert">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <strong>Error!</strong>Unable to delete your request...
-            </div>');
-
+            $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Unable to delete your request.",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
         }
         redirect("admin/ViewTabs");
     }

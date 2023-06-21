@@ -191,13 +191,14 @@
                                 </div>
                                 <h5>Login</h5>
                                 <hr>
-                                <form>
+                                <form action="<?=base_url()?>UserLogin\process_login_user" method="post">
                                     <div class="row text-center align-items-center">
                                         <div class="col-12 col-md-12  pb-3">
-                                            <input type="text" class="form-control bdr-bottom" placeholder="User Name">
+                                            <input type="text" class="form-control bdr-bottom" id="email_login" placeholder="User Email" name="email" oninput="validate_email('email_login','login_email_error','btn_login')">
+                                            <span id="login_email_error"></span>
                                         </div>
                                         <div class="col-12 col-md-12 pb-3">
-                                            <input type="password" class="form-control bdr-bottom"
+                                            <input type="password" class="form-control bdr-bottom" name="password"
                                                 placeholder="Password">
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -206,7 +207,7 @@
                                                 data-bs-target="#ngoregistration">Registration</button>
                                         </div>
                                         <div class="col-12 col-md-6 text-end">
-                                            <button type="button"
+                                            <button type="submit" id="btn_login"
                                                 class="btn btn-outline-secondary w-100 p-2">Login</button>
                                         </div>
                                     </div>
