@@ -194,11 +194,11 @@
                                 <form action="<?=base_url()?>UserLogin\process_login_user" method="post">
                                     <div class="row text-center align-items-center">
                                         <div class="col-12 col-md-12  pb-3">
-                                            <input type="text" class="form-control bdr-bottom" id="email_login" placeholder="User Email" name="email" oninput="validate_email('email_login','login_email_error','btn_login')">
+                                            <input type="text" class="form-control bdr-bottom" required id="email_login" placeholder="User Email" name="email" oninput="validate_email('email_login','login_email_error','btn_login')">
                                             <span id="login_email_error"></span>
                                         </div>
                                         <div class="col-12 col-md-12 pb-3">
-                                            <input type="password" class="form-control bdr-bottom" name="password"
+                                            <input type="password" class="form-control bdr-bottom" required name="password"
                                                 placeholder="Password">
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -275,7 +275,7 @@
                 </div>
                 <span id="show_msg"></span>
                 <div class="modal-body">
-                    <form action="<?=base_url()?>Client/user_register" method="post">
+                    <form action="<?=base_url()?>user/user_register" method="post">
                         <div class="row text-center align-items-center">
                             <div class="col-12 col-md-9  pb-3">
                                 <input type="email" name="email" id="email" class="form-control bdr-bottom"
@@ -299,10 +299,10 @@
                         </div>
                         <div class="row text-center align-items-center" style="display:none" id="passwordDiv">
                             <div class="col-12 col-md-12  pb-3">
-                                <input type="password" name="password" id="password" class="form-control bdr-bottom" placeholder="Enter Password">
+                                <input type="password" name="password" required id="password" class="form-control bdr-bottom" placeholder="Enter Password">
                             </div>
                             <div class="col-12 col-md-12  pb-3">
-                                <input type="password" id="confirm_password" class="form-control bdr-bottom"  oninput="matchPassword('password','confirm_password','password_error','password_id')"placeholder="Re-Type Password">
+                                <input type="password" id="confirm_password" required class="form-control bdr-bottom"  oninput="matchPassword('password','confirm_password','password_error','password_id')"placeholder="Re-Type Password">
                                 <span id="password_error"></span>
                             </div>
                             <div class="col-12 col-md-12 text-end">
@@ -314,12 +314,13 @@
             </div>
         </div>
     </div>
+ 
     <!-- ====== end Registration Modal ====== -->
     <script>
         function showOtp() {
             var email = document.getElementById('email').value;
             $.ajax({
-                url: "<?= base_url() ?>Client/send_otp",
+                url: "<?= base_url() ?>user/send_otp",
                 method: "POST",
                 data: { email: email },
                 success: function (response) {
@@ -327,15 +328,16 @@
                         document.getElementById('otpDiv').style.display = "flex";
                     }
                 }
-
             });
         }
         function showPassword() { 
+            
             var otp_id=document.getElementById('otp_id').value;
             var email = document.getElementById('email').value;
             var msg=document.getElementById('show_msg');
+            document.getElementById('passwordDiv').style.display = "flex"; 
             $.ajax({
-                url:"<?=base_url()?>Client/verify_otp",
+                url:"<?=base_url()?>user/verify_otp",
                 method:"POST",
                 data:{otp_id:otp_id,email:email},
                 success:function(response){
@@ -353,7 +355,7 @@
         }
 
     </script>
-    <?php include_once("includes/footer.php"); ?>
+     <?php include_once("includes/footer.php"); ?>
 </body>
 
 </html>
