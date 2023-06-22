@@ -323,6 +323,7 @@
                 method: "POST",
                 data: { email: email },
                 success: function (response) {
+                    //alert (response);
                     if (response == 1) {
                         document.getElementById('otpDiv').style.display = "flex";
                     }

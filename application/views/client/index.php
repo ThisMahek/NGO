@@ -24,80 +24,62 @@
                     </div><hr>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="row justify-content-center">
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-9">
-                                                    <p class="text-dark mb-0 fw-semibold">Sessions</p>
-                                                    <h3 class="my-1 font-20 fw-bold">24k</h3>
-                                                    <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>
-                                                </div>
-                                                <div class="col-3 align-self-center">
-                                                    <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
-                                                        <i class="ti ti-users font-24 align-self-center text-muted"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> 
+                            <form>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Organisation IT PAN <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
                                     </div>
-                                </div> 
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row d-flex justify-content-center">                                                
-                                                <div class="col-9">
-                                                    <p class="text-dark mb-0 fw-semibold">Avg.Sessions</p>
-                                                    <h3 class="my-1 font-20 fw-bold">00:18</h3>
-                                                    <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>1.5%</span> Weekly Avg.Sessions</p>
-                                                </div>
-                                                <div class="col-3 align-self-center">
-                                                    <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
-                                                        <i class="ti ti-clock font-24 align-self-center text-muted"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Legal (Registered) Name of Organisation <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
                                     </div>
-                                </div> 
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row d-flex justify-content-center">                                                
-                                                <div class="col-9">
-                                                    <p class="text-dark mb-0 fw-semibold">Bounce Rate</p>
-                                                    <h3 class="my-1 font-20 fw-bold">$2400</h3>
-                                                    <p class="mb-0 text-truncate text-muted"><span class="text-danger"><i class="mdi mdi-trending-down"></i>35%</span> Bounce Rate Weekly</p>
-                                                </div>
-                                                <div class="col-3 align-self-center">
-                                                    <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
-                                                        <i class="ti ti-activity font-24 align-self-center text-muted"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Organisation Email Id.<span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="" value="" name="" disabled required>
                                     </div>
-                                </div> 
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row d-flex justify-content-center">
-                                                <div class="col-9">  
-                                                    <p class="text-dark mb-0 fw-semibold">Goal Completions</p>                                         
-                                                    <h3 class="my-1 font-20 fw-bold">85000</h3>
-                                                    <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>10.5%</span> Completions Weekly</p>
-                                                </div>
-                                                <div class="col-3 align-self-center">
-                                                    <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
-                                                        <i class="ti ti-confetti font-24 align-self-center text-muted"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Organisation Website (URL)<span class="text-danger">*</span></label>
+                                        <input type="url" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Name of Person Filling the Form<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Designation of Person Filling the Form<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="page-title-box">
+                                            <h4 class="page-title">Contacts </h4>
                                         </div>
-                                    </div> 
-                                </div>                               
-                            </div>
+                                    </div><hr>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Contact Person of Organisation <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Designation of Contact Person<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Mobile No.<span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email Id.<span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="" value="" name="" required>
+                                    </div>
+                                    <div class="col-sm-12 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Brief Descriptions of Organisation <span class="text-danger">*</span></label>
+                                        <textarea name="editor1"><?= $page_data->content ?></textarea>
+                                    </div>
+                                    <div class="col-md-12 text-end mb-3">
+                                        <button class="btn btn-primary" type="submit">Next</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

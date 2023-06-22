@@ -39,7 +39,10 @@
                 </div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>client/index">- Home</a>
+                        <a class="nav-link" href="<?php echo base_url();?>client/index">- Basic Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url();?>client/uploadDocs">- Upload Documents</a>
                     </li>
                 </ul>
             </div>
@@ -51,10 +54,10 @@
                 <div class="collapse navbar-collapse" id="sidebarCollapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">- Add</a>
+                            <a class="nav-link" href="<?php echo base_url();?>client/addRequirements">- Add</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">- View</a>
+                            <a class="nav-link" href="<?php echo base_url();?>client/ViewRequirements">- View</a>
                         </li>
                     </ul>
                 </div>
