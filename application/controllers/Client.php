@@ -8,17 +8,25 @@ class Client extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("Common_model", "CM");
-		if (!$this->session->userdata('user_id')) {
-			redirect(base_url());
-		}
+		// if (!$this->session->userdata('user_id')) {
+		// 	redirect(base_url());
+		// }
 
 	}
 	// ================Dash Board=============
 	public function index()
 	{
-		$data['title'] = 'NGO - Client | Dashboard';
-		$data['pageName'] = 'Dashboard';
+		$data['title'] = 'NGO - Client | Basic Details';
+		$data['pageName'] = 'Basic Details';
 		$this->load->view('client/index', $data);
+	}
+	// =========================================
+	// ================Upload Docs=============
+	public function uploadDocs()
+	{
+		$data['title'] = 'NGO - Client | Upload Documents';
+		$data['pageName'] = 'Upload Documents';
+		$this->load->view('client/uploadDocs', $data);
 	}
 	// =========================================
 
