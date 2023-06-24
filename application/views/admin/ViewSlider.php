@@ -28,11 +28,8 @@
                                 <table class="table" id="datatable_1">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Sr. No.</th>
-                                            <th>Application No.</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Password</th>
+                                            <th>Order No.</th>
+                                            <th>Image</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -40,13 +37,10 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>19875214</td>
-                                            <td>Any</td>
-                                            <td>info@gmail.com</td>
-                                            <td>12345</td>
-                                            <td>Pending</td>
+                                            <td><img src="<?php echo base_url(); ?>user_assets/img/latest/36.png" width="10%"></td>
+                                            <td>Active</td>
                                             <td>
-                                                <!-- <a href="<?php echo base_url();?>admin/editTabs" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a> -->
+                                                <a href="<?php echo base_url();?>admin/editSlider" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a>
                                                 <a href="#" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>                                                                                   

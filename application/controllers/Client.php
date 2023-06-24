@@ -29,7 +29,14 @@ class Client extends CI_Controller
 		$this->load->view('client/uploadDocs', $data);
 	}
 	// =========================================
-
+	// ================Legal Details=============
+	public function legalDetails()
+	{
+		$data['title'] = 'NGO - Client | Legal Details';
+		$data['pageName'] = 'Legal  Details';
+		$this->load->view('client/legalDetails', $data);
+	}
+	// =========================================
 	// ==============Manage Requirements===========
 
 	public function addRequirements()

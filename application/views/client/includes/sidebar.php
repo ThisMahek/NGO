@@ -42,6 +42,9 @@
                         <a class="nav-link" href="<?php echo base_url();?>client/index">- Basic Details</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url();?>client/legalDetails">- Legal Details</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>client/uploadDocs">- Upload Documents</a>
                     </li>
                 </ul>

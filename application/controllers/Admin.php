@@ -49,7 +49,73 @@ class Admin extends CI_Controller
 		$this->load->view('admin/editTabs', $data);
 	}
 	// =========================================
-	// ================Dash Board=============
+	// ==============Slider Section===========
+
+	public function addSlider()
+	{
+		$data['title'] = 'NGO - Admin | Add Slider';
+		$data['pageName'] = 'Add Slider';
+		$this->load->view('admin/addSlider', $data);
+	}
+	public function ViewSlider()
+	{
+		$data['title'] = 'NGO - Admin | View Slider';
+		$data['pageName'] = 'View Slider';
+		$this->load->view('admin/ViewSlider', $data);
+	}
+
+	public function editSlider()
+	{
+		$data['title'] = 'NGO - Admin | Edit Slider';
+		$data['pageName'] = 'Edit Slider';
+		$this->load->view('admin/editSlider', $data);
+	}
+	// =========================================
+	// ==========Announcements & Updates========
+
+	public function addAnnouncements()
+	{
+		$data['title'] = 'NGO - Admin | Add Announcements';
+		$data['pageName'] = 'Add Announcements';
+		$this->load->view('admin/addAnnouncements', $data);
+	}
+	public function ViewAnnouncements()
+	{
+		$data['title'] = 'NGO - Admin | View Announcements';
+		$data['pageName'] = 'View Announcements';
+		$this->load->view('admin/ViewAnnouncements', $data);
+	}
+
+	public function editAnnouncements()
+	{
+		$data['title'] = 'NGO - Admin | Edit Announcements';
+		$data['pageName'] = 'Edit Announcements';
+		$this->load->view('admin/editAnnouncements', $data);
+	}
+	// =========================================
+	// ==========Settings========
+
+	public function addlogo()
+	{
+		$data['title'] = 'NGO - Admin | Add Logo';
+		$data['pageName'] = 'Add Logo';
+		$this->load->view('admin/addlogo', $data);
+	}
+	public function addContacts()
+	{
+		$data['title'] = 'NGO - Admin | Add Contacts';
+		$data['pageName'] = 'Add Contacts';
+		$this->load->view('admin/addContacts', $data);
+	}
+
+	public function addsocialMedia()
+	{
+		$data['title'] = 'NGO - Admin | Add Social Media';
+		$data['pageName'] = 'Add Social Media';
+		$this->load->view('admin/addsocialMedia', $data);
+	}
+	// =========================================
+	// ================Dash Board===============
 
 	// public function aboutUs()
 	// {   

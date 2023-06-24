@@ -28,11 +28,9 @@
                                 <table class="table" id="datatable_1">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Sr. No.</th>
-                                            <th>Application No.</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Password</th>
+                                            <th>sr. No.</th>
+                                            <th>Title</th>
+                                            <th>View Description</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -40,13 +38,11 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>19875214</td>
-                                            <td>Any</td>
-                                            <td>info@gmail.com</td>
-                                            <td>12345</td>
-                                            <td>Pending</td>
+                                            <td>Title 1</td>
+                                            <td><a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewDescription"><i class="fa fa-eye"></i></a></td>
+                                            <td>Active</td>
                                             <td>
-                                                <!-- <a href="<?php echo base_url();?>admin/editTabs" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a> -->
+                                                <a href="<?php echo base_url();?>admin/editAnnouncements" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a>
                                                 <a href="#" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>                                                                                   
@@ -57,6 +53,21 @@
                     </div>
                 </div>
         <?php include_once("includes/footer.php"); ?>
+        <!-- ===========View Description Modal============ -->
+        <div class="modal fade" id="viewDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Announcements Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    ...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ======================================== -->
     </body>
 </html>
 
