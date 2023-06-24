@@ -8,9 +8,10 @@ class Client extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("Common_model", "CM");
-		// if (!$this->session->userdata('user_id')) {
-		// 	redirect(base_url());
-		// }
+		$this->load->model("User_model", "UM");
+		if (!$this->session->userdata('user_id')) {
+			redirect(base_url());
+		}
 
 	}
 	// ================Dash Board=============
@@ -18,6 +19,8 @@ class Client extends CI_Controller
 	{
 		$data['title'] = 'NGO - Client | Basic Details';
 		$data['pageName'] = 'Basic Details';
+		$data['organisation']=$this->UM->show_organisation_data($this->session->userdata('user_id'));
+		//print_r($data['organisation']);exit;
 		$this->load->view('client/index', $data);
 	}
 	// =========================================

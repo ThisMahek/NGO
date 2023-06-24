@@ -18,7 +18,10 @@ class User_model extends CI_Model
         $this->db->where('id', $this->session->userdata('user_id'));
         return $this->db->update('users', $data);
     }
-
+    public function show_organisation_data($user_id)
+    {
+        return $this->db->where(['status' => 1, 'user_id' => $user_id])->get('organisation')->row();
+    }
 
 }
 ?>
