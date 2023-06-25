@@ -12,7 +12,7 @@
                     <div class="row gx-5">
                         <div class="col-lg-12 border-1  brd-gray mb-5 mb-lg-0">
                             <div class="tc-recently-posts-style5">
-                            <p class="color-000 text-uppercase mb-30">List of NGO's </p>
+                            <p class="color-000 text-uppercase mb-30"><?php echo $pageName; ?> </p>
                                 <div class="tc-post-grid-style5">
                                     <!-- ==========List 1========== -->
                                     <div class="item pb-30 mb-4 border-1 border-bottom brd-gray">
