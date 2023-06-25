@@ -25,5 +25,25 @@ class Admin_model extends CI_Model{
         $this->db->where('id', $this->session->userdata('admin_id'));
         return $this->db->update('admin', $data);
     }
+    public function show_organisation_data()
+    {
+        return  $this->db->select('users.email as org_email,users.password,organisation.*')->join('users','users.id=organisation.user_id','left')->where(['organisation.status!='=>2])->get('organisation')->result();
+    }
+    public function show_single_slider($id)
+    {
+         return $this->db->where(['id'=>$id])->get('slider')->row();
+    }
+    public function show_all_slider()
+    {
+         return $this->db->where(['status!='=>2])->get('slider')->result();
+    }
+    public function show_single_announcements($id)
+    {
+         return $this->db->where(['id'=>$id])->get('announcements')->row();
+    }
+    public function show_all_announcements()
+    {
+         return $this->db->where(['status!='=>2])->get('announcements')->result();
+    }
 }
 ?>

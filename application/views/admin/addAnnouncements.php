@@ -33,18 +33,19 @@
                 <?= $this->session->flashdata('error') ?>
                 <div class="row">
                     <div class="col-lg-12">
-                        <form action="" method="POST">
+                    <form action="<?= base_url('AdminBackend/add_edit_announcements') ?>" method="POST"
+                            enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Title*</label>
-                                    <input type="text" class="form-control" id="" name="order_no"
-                                        placeholder="Enter Tab Order No." required>
+                                    <input type="text" class="form-control"name="title"
+                                        placeholder="Enter Title" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Status*</label>
                                     <select type="text" class="form-control" id="" name="status" required>
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -52,8 +53,8 @@
                                     <div
                                         class="preview-box d-block justify-content-center rounded shadow overflow-hidden bg-light p-1">
                                     </div>
-                                    <input type="file" id="input-file" name="image" accept=""
-                                        onchange={handleChange()} hidden  />
+                                    <input type="file" id="input-file" name="announcement_doc/" 
+                                       hidden  />
                                     <label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
                                         to Upload Image</label>
                                 </div>

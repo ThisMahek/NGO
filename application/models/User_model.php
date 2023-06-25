@@ -22,6 +22,16 @@ class User_model extends CI_Model
     {
         return $this->db->where(['status' => 1, 'user_id' => $user_id])->get('organisation')->row();
     }
+    public function show_requirement_data($id){
+      return  $this->db->select('organisation.organisation_name,requirement.*')->join('organisation','organisation.user_id=requirement.user_id','left')->where(['requirement.id'=>$id,'requirement.status!='=>2])->get('requirement')->row();
+
+    }
+    public function show_all_requirement_data($user_id){
+        return  $this->db->select('organisation.organisation_name,requirement.*')->join('organisation','organisation.user_id=requirement.user_id','left')->where(['requirement.user_id'=>$user_id,'requirement.status!='=>2])->get('requirement')->result();
+  
+      }
+    
+    
 
 }
 ?>

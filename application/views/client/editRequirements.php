@@ -34,36 +34,41 @@
                 <?= $this->session->flashdata('error') ?>
                 <div class="row">
                     <div class="col-lg-12">
-                    <form action="#" method="POST" enctype=multipart/form-data>
+                    <form action="<?=base_url()?>User/SaveRequirement" method="POST" enctype=multipart/form-data>
+                    <input type="hidden"  value="<?=$requirement->id?>" name="id" >
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                     <label for="exampleInputEmail1" class="form-label">Title*</label>
-                                    <input type="text" class="form-control" id="" value="" name="" >
+                                    <input type="text" class="form-control" id="" value="<?=$requirement->title?>"  required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" name="title" >
                                 </div>
                                 <div class="col-md-6">
                                     <label for="exampleInputEmail1" class="form-label">Name Of Organisation*</label>
-                                    <input type="text" class="form-control" id="" value="#" name="" disabled>
+                                    <input type="text" class="form-control" id="" value="<?=$organisation->organisation_name?>" name="" disabled>
                                 </div>
                                 <div class="col-md-6  mt-3">
                                     <label for="exampleInputEmail1" class="form-label">Your Requirements*</label>
-                                    <input type="text" class="form-control" id="" value="" name="" >
+                                    <input type="text" class="form-control" id="" value="<?=$requirement->requirement?>" name="requirement"required >
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="exampleInputEmail1" class="form-label">Upload Feature Image *</label>
                                     <div
                                         class="preview-box d-block justify-content-center rounded shadow overflow-hidden bg-light p-1">
                                     </div>
-                                    <input type="file" id="input-file" name="image" accept="image/*" onchange={handleChange()} hidden require />
-                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
-                                        to Upload Image</label>
+                                    <?php $img=(!empty($requirement->document))?$requirement->document:'assets\client_document\images.jpg'?>
+                                    <input type="file" id="input-file-req" name="user_img" accept="image/*" 
+                                            onchange="preview(this,'image_error','img')" hidden />
+                                            <img src="<?=base_url().$img?>" alt="" height="110" width="90" class="image" id="img">
+                                        <label class="btn-upload btn btn-outline-success mt-4" for="input-file-req">Click here
+                                            to Upload Image</label>
+                                            <span id="image_error"></span>
                                 </div>
                                 <div class="col-sm-12 mt-3">
                                     <label for="exampleInputEmail1" class="form-label">Detail Descriptions*</label>
-                                    <textarea name="editor1"><?= $page_data->content ?></textarea>
+                                    <textarea name="editor1"><?=$requirement->description?></textarea>
                                 </div>
                                 <div class="col-md-12 text-end mt-3">
-                                    <input type="hidden" value="update" name="type">
-                                    <button class="btn btn-primary" type="submit">Update</button>
+                                    <!-- <input type="hidden" value="update" name="type"> -->
+                                    <button class="btn btn-primary" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>

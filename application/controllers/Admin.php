@@ -61,13 +61,15 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | View Slider';
 		$data['pageName'] = 'View Slider';
+		$data['slider'] = $this->AM->show_all_slider();
 		$this->load->view('admin/ViewSlider', $data);
 	}
 
-	public function editSlider()
+	public function editSlider($id)
 	{
 		$data['title'] = 'NGO - Admin | Edit Slider';
 		$data['pageName'] = 'Edit Slider';
+		$data['slider'] = $this->AM->show_single_slider($id);
 		$this->load->view('admin/editSlider', $data);
 	}
 	// =========================================
@@ -83,13 +85,15 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | View Announcements';
 		$data['pageName'] = 'View Announcements';
+		$data['announcement'] = $this->AM->show_all_announcements();
 		$this->load->view('admin/ViewAnnouncements', $data);
 	}
 
-	public function editAnnouncements()
+	public function editAnnouncements($id)
 	{
 		$data['title'] = 'NGO - Admin | Edit Announcements';
 		$data['pageName'] = 'Edit Announcements';
+		$data['announcement'] = $this->AM->show_single_announcements($id);
 		$this->load->view('admin/editAnnouncements', $data);
 	}
 	// =========================================
@@ -129,6 +133,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | View Ngo';
 		$data['pageName'] = 'View Ngo';
+		$data['organisation']=$this->AM->show_organisation_data();
 		$this->load->view('admin/ViewNgo', $data);
 	}
 	// =========================================

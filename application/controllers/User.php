@@ -8,7 +8,7 @@ class User extends CI_Controller
 		parent::__construct();
 		$this->load->model("Common_model", "CM");
 		$this->load->model("User_model", "UM");
-		 $user_id=$this->session->userdata('user_id');
+		$user_id = $this->session->userdata('user_id');
 		// if (!$this->session->userdata('user_id')) {
 		// 	redirect(base_url());
 		// }
@@ -68,7 +68,7 @@ class User extends CI_Controller
 	public function user_register()
 	{
 		$email = $this->input->post('email');
-		$password = md5($this->input->post('password'));
+		$password = base64_encode($this->input->post('password'));
 		$user_otp_data = $this->db->where(['email' => $email])->get('user_otp');
 		if ($user_otp_data->num_rows()) {
 			$user_data_count = $this->db->where(['email' => $email])->get('users')->num_rows();
@@ -113,41 +113,102 @@ class User extends CI_Controller
 
 	public function save_origination()
 	{
-$user_id=$this->session->userdata('user_id');
-		$insert_array = array(
-			'user_id' => $user_id,
-			'it_pan' => $this->input->post('it_pan'),
-			'organisation_name' => $this->input->post('organisation_name'),
-			'website_url' => $this->input->post('website_url'),
-			'person_name' => $this->input->post('person_name'),
-			'designation' => $this->input->post('designation'),
-			'cp_mob_no' => $this->input->post('cp_mob_no'),
-			'contact_person' => $this->input->post('contact_person'),
-			'cp_designation' => $this->input->post('cp_designation'),
-			'cp_email_id' => $this->input->post('cp_email_id'),
-			'cp_descriptions' => $this->input->post('editor1'),
-		);
-		$organisation_data=$this->UM->show_organisation_data($user_id);
-		if(!empty($organisation_data)){
-		$response = $this->CM->data_update('organisation', $insert_array,array('id'=>isset($_POST['id'])));
-		}
-		else{
+		$uri = $this->input->post('uri');
+		$id = $this->input->post('id');
+		$user_id = $this->session->userdata('user_id');
+		$organisation_data = $this->UM->show_organisation_data($user_id);
+		$insert_array['user_id'] = $user_id;
+		$insert_array['it_pan'] = isset($_POST['it_pan']) ? $_POST['it_pan'] : $organisation_data->it_pan;
+		$insert_array['organisation_name'] = isset($_POST['organisation_name']) ? $_POST['organisation_name'] : $organisation_data->organisation_name;
+		$insert_array['website_url'] = isset($_POST['website_url']) ? $_POST['website_url'] : $organisation_data->website_url;
+		$insert_array['person_name'] = isset($_POST['person_name']) ? $_POST['person_name'] : $organisation_data->person_name;
+		$insert_array['designation'] = isset($_POST['designation']) ? $_POST['designation'] : $organisation_data->designation;
+		$insert_array['cp_mob_no'] = isset($_POST['cp_mob_no']) ? $_POST['cp_mob_no'] : $organisation_data->cp_mob_no;
+		$insert_array['cp_descriptions'] = isset($_POST['editor1']) ? $_POST['editor1'] : $organisation_data->cp_descriptions;
+		$insert_array['contact_person'] = isset($_POST['contact_person']) ? $_POST['contact_person'] : $organisation_data->contact_person;
+		$insert_array['cp_designation'] = isset($_POST['cp_designation']) ? $_POST['cp_designation'] : $organisation_data->cp_designation;
+		$insert_array['cp_email_id'] = isset($_POST['cp_email_id']) ? $_POST['cp_email_id'] : $organisation_data->cp_email_id;
+	//start file uplaoded code
+			$file = $_FILES["address_proof_img"];
+			$MyFileName = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] = $file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('address_proof_img');
+				if ($filestatus == true) {
+					$MyFileName = $this->upload->data('file_name');
+					$insert_array['address_proof'] = "/assets/client_document/" . $MyFileName;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+			//end file uplaoded code
+			//start file uplaoded code
+			$file = $_FILES["logo_img"];
+			$MyFileName = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] =$file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('logo_img');
+				if ($filestatus == true) {
+					$MyFileName = $this->upload->data('file_name');
+					$insert_array['organisation_logo'] = "/assets/client_document/" . $MyFileName;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+			//end file uplaoded code
+			$file = $_FILES["pan_img"];
+			$MyFileName2 = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] = $file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('pan_img');
+				if ($filestatus == true) {
+					$MyFileName2 = $this->upload->data('file_name');
+					$insert_array['pan_registration_document'] = "/assets/client_document/" . $MyFileName2 ;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+		if (!empty($organisation_data)) {
+			$response = $this->CM->data_update('organisation', $insert_array, array('id' =>$id));
+		} else {
+			$insert_array['application_no']=get_code();
 			$response = $this->CM->data_insert('organisation', $insert_array);
 		}
-		if($_POST['id']!=""){
-			$msg='update';
-		}else{
-			$msg='added';
+		if (!empty($id)) {
+			$msg = 'updated';
+		} else {
+			$msg = 'added';
 		}
 		if ($response) {
 			$this->session->set_flashdata('success', '<script>
 		swal({
 			title: "Congratulations!",
-			text: "Origination '.$msg.' Successfully!",
+			text: "Organization ' . $msg . ' Successfully!",
 			icon: "success",
 			});
 		</script>');
-			redirect(base_url()."client");
+			if ($uri == 'legalDetails') {
+				redirect(base_url() . "client/uploadDocs");
+			} else if ($uri == 'uploadDocs') {
+				redirect(base_url() . "client/uploadDocs");
+			} else {
+				redirect(base_url() . "client/legalDetails");
+			}
 
 		} else {
 			$this->session->set_flashdata('error', '<script>
@@ -158,7 +219,254 @@ $user_id=$this->session->userdata('user_id');
                 button: "ok",
                 });
             </script>');
-			redirect(base_url()."client");
+			redirect(base_url() . "client/index");
+		//	redirect(base_url($_SERVER['PHP_SELF']));
 		}
 	}
+	public function save_legalDetails()
+	{
+		$uri = $this->input->post('uri');
+		$id = $this->input->post('id');
+		$user_id = $this->session->userdata('user_id');
+		$organisation_data = $this->UM->show_organisation_data($user_id);
+		$insert_array['registration_as'] = isset($_POST['registration_as']) ? $_POST['registration_as'] : $organisation_data->registration_as;
+		$insert_array['registration_no'] = isset($_POST['registration_no']) ? $_POST['registration_no'] : $organisation_data->registration_no;
+		$insert_array['registration_date'] = isset($_POST['registration_date']) ? $_POST['registration_date'] : $organisation_data->registration_date;
+		$insert_array['registration_under'] = isset($_POST['registration_under']) ? $_POST['registration_under'] : $organisation_data->registration_under;
+		$insert_array['state'] = isset($_POST['state']) ? $_POST['state'] : $organisation_data->state;
+			//start file uplaoded code
+			$file = $_FILES["user_img"];
+			$MyFileName = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] = $file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('user_img');
+				if ($filestatus == true) {
+					$MyFileName = $this->upload->data('file_name');
+					$insert_array['document'] = "/assets/client_document/" . $MyFileName;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+			//end file uplaoded code
+		if (!empty($organisation_data)) {
+			$response = $this->CM->data_update('organisation', $insert_array, array('id' => $id));
+		} 
+		if ($response) {
+			$this->session->set_flashdata('success', '<script>
+		swal({
+			title: "Congratulations!",
+			text: "Details updated Successfully!",
+			icon: "success",
+			});
+		</script>');
+			if ($uri == 'legalDetails') {
+				redirect(base_url() . "client/uploadDocs");
+			} else if ($uri == 'uploadDocs') {
+				redirect(base_url() . "client/uploadDocs");
+			} else {
+				redirect(base_url() . "client/legalDetails");
+			}
+
+		} else {
+			$this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Something went wrong",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+			redirect(base_url() . "client/legalDetails");
+		}
+	}
+	public function save_uploadDocs()
+	{
+		$uri = $this->input->post('uri');
+		$id = $this->input->post('id');
+		$user_id = $this->session->userdata('user_id');
+		$organisation_data = $this->UM->show_organisation_data($user_id);
+	//start file uplaoded code
+			$file = $_FILES["address_proof_img"];
+			$MyFileName = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] = $file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('address_proof_img');
+				if ($filestatus == true) {
+					$MyFileName = $this->upload->data('file_name');
+					$insert_array['address_proof'] = "/assets/client_document/" . $MyFileName;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+			//end file uplaoded code
+			//start file uplaoded code
+			$file = $_FILES["logo_img"];
+			$MyFileName = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] =$file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('logo_img');
+				if ($filestatus == true) {
+					$MyFileName = $this->upload->data('file_name');
+					$insert_array['organisation_logo'] = "/assets/client_document/" . $MyFileName;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+			//end file uplaoded code
+			$file = $_FILES["pan_img"];
+			$MyFileName2 = "";
+			if (strlen($file['name']) > 0) {
+				$gallery_img = $file["name"];
+				$config['upload_path'] = './assets/client_document/';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['file_name'] = $file['name'];
+				$this->load->library("upload", $config);
+				$filestatus = $this->upload->do_upload('pan_img');
+				if ($filestatus == true) {
+					$MyFileName2 = $this->upload->data('file_name');
+					$insert_array['pan_registration_document'] = "/assets/client_document/" . $MyFileName2 ;
+				} else {
+					$error = array('error' => $this->upload->display_errors());
+					$result = $error;
+				}
+			}
+		if (!empty($organisation_data)) {
+			$response = $this->CM->data_update('organisation', $insert_array, array('id' =>$id));
+		} else {
+			$insert_array['application_no']=get_code();
+			$response = $this->CM->data_insert('organisation', $insert_array);
+		}
+		if (!empty($id)) {
+			$msg = 'updated';
+		} else {
+			$msg = 'added';
+		}
+		if ($response) {
+			$this->session->set_flashdata('success', '<script>
+		swal({
+			title: "Congratulations!",
+			text: "Document ' . $msg . ' Successfully!",
+			icon: "success",
+			});
+		</script>');
+			if ($uri == 'legalDetails') {
+				redirect(base_url() . "client/uploadDocs");
+			} else if ($uri == 'uploadDocs') {
+				redirect(base_url() . "client/uploadDocs");
+			} else {
+				redirect(base_url() . "client/legalDetails");
+			}
+
+		} else {
+			$this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Something went wrong",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+			redirect(base_url() . "client/index");
+		//	redirect(base_url($_SERVER['PHP_SELF']));
+		}
+	}
+	public function SaveRequirement()
+	{
+		$id = $this->input->post('id');
+		$organisation_data = $this->UM->show_requirement_data($id);
+		$insert_array['user_id'] = $this->session->userdata('user_id');
+		$insert_array['title'] = isset($_POST['title']) ? $_POST['title'] : $organisation_data->title;
+		$insert_array['requirement'] = isset($_POST['requirement']) ? $_POST['requirement'] : $organisation_data->requirement;
+		$insert_array['description'] = isset($_POST['editor1']) ? $_POST['editor1'] : $organisation_data->description;
+		//start file uplaoded code
+		$file = $_FILES["user_img"];
+		$MyFileName = "";
+		if (strlen($file['name']) > 0) {
+			$gallery_img = $file["name"];
+			$config['upload_path'] = './assets/client_document/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['file_name'] = $file['name'];
+			$this->load->library("upload", $config);
+			$filestatus = $this->upload->do_upload('user_img');
+			if ($filestatus == true) {
+				$MyFileName = $this->upload->data('file_name');
+				$insert_array['document'] = "/assets/client_document/" . $MyFileName;
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				$result = $error;
+			}
+		}
+		//end file uplaoded code
+		if (!empty($organisation_data)) {
+			$response = $this->CM->data_updated('requirement', $insert_array, array('id' => $id));
+		} else {
+			$response = $this->CM->data_insert('requirement', $insert_array);
+		}
+		if ($_POST['id'] != "") {
+			$msg = 'updated';
+		} else {
+			$msg = 'added';
+		}
+		if ($response) {
+			$this->session->set_flashdata('success', '<script>
+		swal({
+			title: "Congratulations!",
+			text: "Requirement ' . $msg . ' Successfully!",
+			icon: "success",
+			});
+		</script>');
+			redirect(base_url() . "client/ViewRequirements");
+		} else {
+			$this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Something went wrong",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+			redirect(base_url() . "client/addRequirements");
+			// redirect(base_url($_SERVER['PHP_SELF']));
+		}
+	}
+	public function delete_requirement($id)
+    {
+        $array['status'] = 2;
+        $response = $this->CM->data_update('requirement', $array, array('id' => $id));
+        if ($response) {
+            $this->session->set_flashdata('success', '<script>
+            swal({
+                title: "Your requirement",
+                text: "deleted successfully!",
+                icon: "success",
+                });
+            </script>');
+        } else {
+            $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Unable to delete your requirement.",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+        }
+        redirect(base_url()."client/ViewRequirements");
+    }
+
 }
