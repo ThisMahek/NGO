@@ -36,6 +36,20 @@ class User extends CI_Controller
 		$this->load->view('aboutUs', $data);
 
 	}
+	public function announcements()
+	{
+		$data['title'] = 'Sarv Seva - Announcements & Updates';
+		$data['pageName'] = 'Announcements & Updates';
+		$this->load->view('announcements', $data);
+
+	}
+	public function requirements()
+	{
+		$data['title'] = 'Sarv Seva - Requirements';
+		$data['pageName'] = 'Requirements';
+		$this->load->view('requirements', $data);
+
+	}
 	public function send_otp()
 	{
 		$email = $this->input->post('email');
