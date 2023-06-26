@@ -71,9 +71,10 @@ class Client extends CI_Controller
 		$data['title'] = 'NGO - Client | View Requirements';
 		$data['pageName'] = 'View Requirements';
 		$data['requirement']= $this->UM->show_all_requirement_data($user_id);
+
 		$this->load->view('client/ViewRequirements', $data);
 	}
-
+	
 	
 	// =========================================
 	

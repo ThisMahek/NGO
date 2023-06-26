@@ -1,4 +1,5 @@
     <!-- Metas -->
+    <?php $data=$this->db->get('setting')->row();?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -10,7 +11,7 @@
     <title><?php echo $title; ?> </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url();?>user_assets/img/logo_home5.png" title="Favicon" sizes="16x16" />
+    <link rel="shortcut icon" href="<?php echo base_url();?><?=$data->logo?>" title="Favicon" sizes="16x16" />
 
     <!-- bootstrap 5 -->
     <link rel="stylesheet" href="<?php echo base_url();?>user_assets/css/lib/bootstrap.min.css">

@@ -15,29 +15,34 @@
                             <p class="color-000 text-uppercase mb-30"><?php echo $pageName; ?> </p>
                                 <div class="tc-post-grid-style5">
                                     <!-- ==========List 1========== -->
+                                    <?php
+                                    if(!empty($ngo_data))
+                                    {
+                                    foreach($ngo_data as $row){
+                                    ?>
                                     <div class="item pb-30 mb-4 border-1 border-bottom brd-gray">
                                         <div class="row gx-5">
                                             <div class="col-md-10 col-7 m-auto">
                                                 <div class="content">
                                                     <h5 class="title mb-20"> 
                                                         <a href="#">
-                                                            Serv Seva Trust
+                                                           <?=$row->organisation_name?>
                                                         </a> 
                                                     </h5>
-                                                    <div class="text color-666 mb-20 text-justify">Update your profile with 12A & ITR and get a free Transparency Key! Please enter your username and password below. If you have forgotten login details, visit Login and Update My Profile link on left panel.</div>
+                                                    <div class="text color-666 mb-20 text-justify"><?=$row->cp_descriptions?></div>
                                                     <div class="meta-bot fsz-13px color-666">
                                                         <ul class="d-flex">
                                                             <li class="date me-5">
-                                                                <a href="#"><i class="la la-phone me-2"></i>+91-987643210</a>
+                                                                <a href="#"><i class="la la-phone me-2"></i>+91- <?=$row->cp_mob_no?></a>
                                                             </li>
                                                             <li class="comment me-5">
-                                                                <a href="#"><i class="la la-envelope me-2"></i> info@ss.com </a>
+                                                                <a href="#"><i class="la la-envelope me-2"></i>  <?=$row->ngo_email?></a>
                                                             </li>
                                                             <li class="comment me-5">
-                                                                <a href="#"><i class="la la-globe me-2"></i> www.ss.com </a>
+                                                                <a href="#"><i class="la la-globe me-2"></i> <?=$row->website_url?></a>
                                                             </li>
                                                             <li class="comment">
-                                                                <a href="#"><i class="la la-map-marker me-2"></i> Delhi India </a>
+                                                                <a href="#"><i class="la la-map-marker me-2"></i>  <?=$row->address?> </a>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -45,49 +50,16 @@
                                             </div>
                                             <div class="col-md-2 col-5 m-auto">
                                                 <a href="#" class="img img-cover d-block">
-                                                    <img src="<?php echo base_url();?>user_assets/img/logo_home5.png" alt="">
+                                                    <img src="<?php echo base_url();?><?=$row->organisation_logo?>" alt="">
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php } }else{?>
+                                        <h1>No data found</h1>; 
+                                        <?php }?>
                                     <!-- ========================== -->
-                                    <!-- ==========List 2========== -->
-                                    <div class="item pb-30  mb-4 border-1 border-bottom brd-gray">
-                                        <div class="row gx-5">
-                                            <div class="col-md-10 col-7 m-auto">
-                                                <div class="content">
-                                                    <h5 class="title mb-20"> 
-                                                        <a href="#">
-                                                            Serv Seva Trust
-                                                        </a> 
-                                                    </h5>
-                                                    <div class="text color-666 mb-20 text-justify">Update your profile with 12A & ITR and get a free Transparency Key! Please enter your username and password below. If you have forgotten login details, visit Login and Update My Profile link on left panel.</div>
-                                                    <div class="meta-bot fsz-13px color-666">
-                                                        <ul class="d-flex">
-                                                            <li class="date me-5">
-                                                                <a href="#"><i class="la la-phone me-2"></i>+91-987643210</a>
-                                                            </li>
-                                                            <li class="comment me-5">
-                                                                <a href="#"><i class="la la-envelope me-2"></i> info@ss.com </a>
-                                                            </li>
-                                                            <li class="comment me-5">
-                                                                <a href="#"><i class="la la-globe me-2"></i> www.ss.com </a>
-                                                            </li>
-                                                            <li class="comment">
-                                                                <a href="#"><i class="la la-map-marker me-2"></i> Delhi India </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2 col-5 m-auto">
-                                                <a href="#" class="img img-cover d-block">
-                                                    <img src="<?php echo base_url();?>user_assets/img/logo_home5.png" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- ========================== -->
+                                   
                                 </div>
                             </div>
                         </div>

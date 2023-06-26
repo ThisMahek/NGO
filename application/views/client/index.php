@@ -52,6 +52,10 @@
                                         <label for="exampleInputEmail1" class="form-label">Designation of Person Filling the Form<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="" value="<?=$organisation->designation?>" name="designation"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Address<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="<?=$organisation->address?>" name="address"  required>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="page-title-box">
                                             <h4 class="page-title">Contacts </h4>

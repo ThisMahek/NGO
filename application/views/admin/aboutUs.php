@@ -57,10 +57,15 @@
                                     <div
                                         class="preview-box d-block justify-content-center rounded shadow overflow-hidden bg-light p-1">
                                     </div>
-                                    <input type="file" id="input-file" name="image" accept="image/*"
-                                        onchange={handleChange()} hidden require />
-                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
+                                    <?php $img =(!empty($page_data->image))?$page_data->image:'assets\client_document\images.jpg' ?>
+                                    <input type="file" id="input-file-req" name="image" accept="image/*"
+                                        onchange="preview(this,'image_error','img')" hidden />
+                                    <img src="<?= base_url() . $img ?>" alt="" height="110" width="90" class="image"
+                                        id="img">
+                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file-req">Click
+                                        here
                                         to Upload Image</label>
+                                    <span id="image_error"></span>
                                 </div>
                                 <div class="col-sm-12 mt-3">
                                     <label for="exampleInputEmail1" class="form-label">Page Content*</label>
