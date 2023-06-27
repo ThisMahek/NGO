@@ -45,5 +45,9 @@ class Admin_model extends CI_Model{
     {
          return $this->db->where(['status!='=>2])->get('announcements')->result();
     }
+    public function show_setting()
+    {
+        return $this->db->where(['status'=>1])->get('setting')->row();
+    }    
 }
 ?>

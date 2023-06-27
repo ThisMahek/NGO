@@ -103,12 +103,16 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | Add Logo';
 		$data['pageName'] = 'Add Logo';
+		$data['setting'] = $this->AM->show_setting();
+		$data['uri']=$this->uri->segment('2');
 		$this->load->view('admin/addlogo', $data);
 	}
 	public function addContacts()
 	{
 		$data['title'] = 'NGO - Admin | Add Contacts';
 		$data['pageName'] = 'Add Contacts';
+		$data['setting'] = $this->AM->show_setting();
+		$data['uri']=$this->uri->segment('2');
 		$this->load->view('admin/addContacts', $data);
 	}
 
@@ -116,6 +120,8 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | Add Social Media';
 		$data['pageName'] = 'Add Social Media';
+		$data['setting'] = $this->AM->show_setting();
+		$data['uri']=$this->uri->segment('2');
 		$this->load->view('admin/addsocialMedia', $data);
 	}
 	// =========================================
