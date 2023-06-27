@@ -1,8 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <?php include_once("includes/common-head.php"); ?> 
     </head>
+    <style>
+    .img-cover img {
+    width: 20%;
+    height: 20%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+</style>
 <body class="home-style5">
     <?php include_once("includes/header.php"); ?>
     <main>
@@ -20,18 +29,18 @@
                                             <div class="row align-items-center justify-content-between">
                                                 <div class="col-lg-12">
                                                     <div class="info mt-4 mt-lg-0">
-                                                        <p class="fsz-13px color-main">SS Universal </p>
-                                                        <h2 class="fsz-30px mb-40"> Our styleguide for our users is very easy to catch </h2>
+                                                        <p class="fsz-13px color-main"><?=$requirement_data->organisation_name?></p>
+                                                        <h2 class="fsz-30px mb-40"> <?=$requirement_data->requirement	?> </h2>
                                                         <div class="row align-items-center justify-content-between">
                                                             <div class="col-lg-12">
                                                                 <div class="img img-cover">
-                                                                    <img src="<?php echo base_url();?>user_assets/img/about_page/about.jpg" alt="" >
+                                                                    <img  src="<?php echo base_url();?><?=$requirement_data->document?>" height="200" width="200" alt="" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-12 mt-4">
                                                                 <div class="info mt-4 mt-lg-0">
                                                                     <div class="text fsz-14px color-666 mb-60">
-                                                                        The about us page is often a reflection of the purpose & personality of the business and its owners or top employees. Finally, the page can also incorporate contact or locational information.
+                                                                    <?=$requirement_data->description?>
                                                                     </div>
                                                                 </div>
                                                             </div>

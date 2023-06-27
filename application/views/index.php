@@ -17,95 +17,40 @@
                         <div class="tc-post-overlay-style5 mb-5 mb-lg-0">
                             <div class="tc-post-overlay-slider5">
                                 <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="item">
-                                                <div class="img th-525 img-cover">
-                                                    <img src="<?php echo base_url(); ?>user_assets/img/latest/36.png"
-                                                        alt="">
-                                                    <div class="tags">
-                                                        <a href="#">business</a>
+                                    <?php
+                                    $i = 0;
+                                    //<?= $i== 0 ? 'active':''?
+                                    foreach ($slider_data as $s) {
+                                        ?>
+                                        <div class="swiper-wrapper">
+
+                                            <div class="swiper-slide">
+                                                <div class="item">
+                                                    <div class="img th-525 img-cover">
+
+                                                        <img src="<?php echo base_url(); ?><?= $s->image ?>" alt="">
+
                                                     </div>
-                                                </div>
-                                                <div class="info">
-                                                    <h2 class="title mb-20">
-                                                        <a href="page-single-post-creative.html">
-                                                            Forbes #3: Top 10 Businessman NYC
-                                                        </a>
-                                                    </h2>
-                                                    <div class="text mb-40 fsz-16px">
-                                                        Its first decline in subscribers since 2011 triggered a $54
-                                                        billion stock value loss and [...]
-                                                    </div>
-                                                    <div class="meta-bot fsz-13px text-white">
-                                                        <ul class="d-flex">
-                                                            <li class="date me-4">
-                                                                <a href="#"><i class="la la-calendar me-2"></i> Dec 14,
-                                                                    2022</a>
-                                                            </li>
-                                                            <li class="author me-4">
-                                                                <a href="#"><i class="la la-user me-2"></i> by Admin
-                                                                </a>
-                                                            </li>
-                                                            <li class="comment">
-                                                                <a href="#"><i class="la la-comment me-2"></i> 55
-                                                                    Comments</a>
-                                                            </li>
-                                                        </ul>
+                                                    <div class="info">
+                                                        <div class="text mb-40 fsz-16px">
+                                                            <?= $s->title ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="item">
-                                                <div class="img th-525 img-cover">
-                                                    <img src="<?php echo base_url(); ?>user_assets/img/videos/9.png"
-                                                        alt="">
-                                                    <div class="tags">
-                                                        <a href="#">business</a>
-                                                    </div>
-                                                </div>
-                                                <div class="info">
-                                                    <h2 class="title mb-20">
-                                                        <a href="page-single-post-creative.html">
-                                                            Forbes #3: Top 10 Businessman NYC
-                                                        </a>
-                                                    </h2>
-                                                    <div class="text mb-40 fsz-16px">
-                                                        Its first decline in subscribers since 2011 triggered a $54
-                                                        billion stock value loss and [...]
-                                                    </div>
-                                                    <div class="meta-bot fsz-13px text-white">
-                                                        <ul class="d-flex">
-                                                            <li class="date me-4">
-                                                                <a href="#"><i class="la la-calendar me-2"></i> Dec 14,
-                                                                    2022</a>
-                                                            </li>
-                                                            <li class="author me-4">
-                                                                <a href="#"><i class="la la-user me-2"></i> by Admin
-                                                                </a>
-                                                            </li>
-                                                            <li class="comment">
-                                                                <a href="#"><i class="la la-comment me-2"></i> 55
-                                                                    Comments</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php $i++;
+                                    } ?>
+
+                                        <!-- arrows -->
+                                        <div class="arrows">
+                                            <div class="swiper-button-next"></div>
+                                            <div class="swiper-button-prev"></div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- arrows -->
-                                <div class="arrows">
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </section>
         <!-- ====== Slider End ====== -->
 
@@ -119,60 +64,32 @@
                                 <div class="content">
                                     <h3 class="title mb-20">Announcements & Updates</h3>
                                     <hr>
-                                    <marquee width="100%" direction="up" height="300px">
+                                    <marquee width="90%" direction="up" height="300px">
                                         <div class="tc-post-list-style5">
                                             <div class="items">
-                                                <div class="item pt-2">
-                                                    <div class="row gx-0">
-                                                        <div class="col-12 pe-10">
-                                                            <div class="content">
-                                                                <div class="tags mb-15">
-                                                                    <a href="#">20/01/2023</a>
+                                                <?php
+                                                foreach ($announcements_data as $a) {
+
+                                                    ?>
+                                                    <div class="item pt-2">
+                                                        <div class="row gx-0">
+                                                            <div class="col-12 pe-10">
+                                                                <div class="content">
+                                                                    <div class="tags mb-15">
+                                                                        <a
+                                                                            href="#"><?= date("d/m/Y", strtotime($a->created_at)) ?></a>
+                                                                    </div>
+                                                                    <h5 class="title">
+                                                                        <a href="<?=base_url()?>user/announcements/<?=$a->id?>"
+                                                                            class="hover-underline">
+                                                                            <?= $a->title ?>
+                                                                        </a>
+                                                                    </h5>
                                                                 </div>
-                                                                <h5 class="title">
-                                                                    <a href="page-single-post-creative.html"
-                                                                        class="hover-underline">
-                                                                        Announcements Regarding Hiering
-                                                                    </a>
-                                                                </h5>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="item pt-2">
-                                                    <div class="row gx-0">
-                                                        <div class="col-12 pe-10">
-                                                            <div class="content">
-                                                                <div class="tags mb-15">
-                                                                    <a href="#">20/01/2023</a>
-                                                                </div>
-                                                                <h5 class="title">
-                                                                    <a href="page-single-post-creative.html"
-                                                                        class="hover-underline">
-                                                                        Announcements Regarding Hiering
-                                                                    </a>
-                                                                </h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item pt-2">
-                                                    <div class="row gx-0">
-                                                        <div class="col-12 pe-10">
-                                                            <div class="content">
-                                                                <div class="tags mb-15">
-                                                                    <a href="#">20/01/2023</a>
-                                                                </div>
-                                                                <h5 class="title">
-                                                                    <a href="page-single-post-creative.html"
-                                                                        class="hover-underline">
-                                                                        Announcements Regarding Hiering
-                                                                    </a>
-                                                                </h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </marquee>
@@ -191,15 +108,17 @@
                                 </div>
                                 <h5>Login</h5>
                                 <hr>
-                                <form action="<?=base_url()?>UserLogin\process_login_user" method="post">
+                                <form action="<?= base_url() ?>UserLogin\process_login_user" method="post">
                                     <div class="row text-center align-items-center">
                                         <div class="col-12 col-md-12  pb-3">
-                                            <input type="text" class="form-control bdr-bottom" required id="email_login" placeholder="User Email" name="email" oninput="validate_email('email_login','login_email_error','btn_login')">
+                                            <input type="text" class="form-control bdr-bottom" required id="email_login"
+                                                placeholder="User Email" name="email"
+                                                oninput="validate_email('email_login','login_email_error','btn_login')">
                                             <span id="login_email_error"></span>
                                         </div>
                                         <div class="col-12 col-md-12 pb-3">
-                                            <input type="password" class="form-control bdr-bottom" required name="password"
-                                                placeholder="Password">
+                                            <input type="password" class="form-control bdr-bottom" required
+                                                name="password" placeholder="Password">
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <button type="button" class="btn btn-outline-secondary w-100 p-2"
@@ -240,22 +159,41 @@
                     <div class="content">
                         <div class="tc-about-history-slider">
                             <div class="swiper-container overflow-visible">
+                          
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="history-card">
-                                            <div class="card-title mb-30">
-                                                <p class="fsz-13px color-main">SS Universal </p>
-                                                <h5 class="fsz-22px fw-bold"> Requirements for Funds </h5>
+                                <?php
+                                    foreach ($requirement_data as $a) {
+
+                                        ?>
+                                        <div class="swiper-slide">
+                                            <div class="history-card">
+                                                <div class="card-title mb-30">
+                                                    <p class="fsz-13px color-main"><?=$a->organisation_name?> </p>
+                                                    <h5 class="fsz-22px fw-bold"><?=$a->title?></h5>
+                                                </div>
+                                                <div class="text fsz-14px color-666 mb-50">
+                                               
+                                                <?php
+                                                $string = strip_tags($a->description);
+                                                    if (strlen($string) > 20) {
+                                                        // truncate string
+                                                        $stringCut = substr($string, 0, 100);
+                                                        $endPoint = strrpos($stringCut, ' ');
+                                                        //if the string doesn't contain any space then it will cut without word basis.
+                                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                                        $string .= '... <a href="'.base_url("user/requirements/$a->id").'">Read More</a>';
+                                                    }
+                                                    echo $string;
+                                                ?>
+                                                </div>
+                                                <!-- <a href="#"> Read More </a> -->
                                             </div>
-                                            <div class="text fsz-14px color-666 mb-50">
-                                                The about us page is often a reflection of the purpose & personality of
-                                                the business and its owners.
-                                            </div>
-                                            <a href="#"> Read More </a>
                                         </div>
+                                        <?php } ?>
                                     </div>
-                                </div>
+                               
                             </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -275,7 +213,7 @@
                 </div>
                 <span id="show_msg"></span>
                 <div class="modal-body">
-                    <form action="<?=base_url()?>user/user_register" method="post">
+                    <form action="<?= base_url() ?>user/user_register" method="post">
                         <div class="row text-center align-items-center">
                             <div class="col-12 col-md-9  pb-3">
                                 <input type="email" name="email" id="email" class="form-control bdr-bottom"
@@ -290,7 +228,8 @@
                         </div>
                         <div class="row text-center align-items-center" style="display:none" id="otpDiv">
                             <div class="col-12 col-md-9  pb-3">
-                                <input type="number" class="form-control bdr-bottom"  id="otp_id" placeholder="Enter OTP">
+                                <input type="number" class="form-control bdr-bottom" id="otp_id"
+                                    placeholder="Enter OTP">
                             </div>
                             <div class="col-12 col-md-3 text-end">
                                 <button type="button" class="btn btn-outline-secondary w-100 btn-sm  p-2"
@@ -299,14 +238,18 @@
                         </div>
                         <div class="row text-center align-items-center" style="display:none" id="passwordDiv">
                             <div class="col-12 col-md-12  pb-3">
-                                <input type="password" name="password" required id="password" class="form-control bdr-bottom" placeholder="Enter Password">
+                                <input type="password" name="password" required id="password"
+                                    class="form-control bdr-bottom" placeholder="Enter Password">
                             </div>
                             <div class="col-12 col-md-12  pb-3">
-                                <input type="password" id="confirm_password" required class="form-control bdr-bottom"  oninput="matchPassword('password','confirm_password','password_error','password_id')"placeholder="Re-Type Password">
+                                <input type="password" id="confirm_password" required class="form-control bdr-bottom"
+                                    oninput="matchPassword('password','confirm_password','password_error','password_id')"
+                                    placeholder="Re-Type Password">
                                 <span id="password_error"></span>
                             </div>
                             <div class="col-12 col-md-12 text-end">
-                                <button type="submit" id="password_id" class="btn btn-secondary w-100 btn-sm  p-2">Submit</button>
+                                <button type="submit" id="password_id"
+                                    class="btn btn-secondary w-100 btn-sm  p-2">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -314,7 +257,7 @@
             </div>
         </div>
     </div>
- 
+
     <!-- ====== end Registration Modal ====== -->
     <script>
         function showOtp() {
@@ -331,32 +274,32 @@
                 }
             });
         }
-        function showPassword() { 
-            
-            var otp_id=document.getElementById('otp_id').value;
+        function showPassword() {
+
+            var otp_id = document.getElementById('otp_id').value;
             var email = document.getElementById('email').value;
-            var msg=document.getElementById('show_msg');
-            document.getElementById('passwordDiv').style.display = "flex"; 
+            var msg = document.getElementById('show_msg');
+            document.getElementById('passwordDiv').style.display = "flex";
             $.ajax({
-                url:"<?=base_url()?>user/verify_otp",
-                method:"POST",
-                data:{otp_id:otp_id,email:email},
-                success:function(response){
-                    if(response==1){
-                        document.getElementById('passwordDiv').style.display = "flex"; 
-                        msg.innerHTML= "";
-                        msg.style.color= "";
+                url: "<?= base_url() ?>user/verify_otp",
+                method: "POST",
+                data: { otp_id: otp_id, email: email },
+                success: function (response) {
+                    if (response == 1) {
+                        document.getElementById('passwordDiv').style.display = "flex";
+                        msg.innerHTML = "";
+                        msg.style.color = "";
                     }
-                    else{
-                        msg.innerHTML= "Enter Valid Otp";
-                        msg.style.color= "red";
+                    else {
+                        msg.innerHTML = "Enter Valid Otp";
+                        msg.style.color = "red";
                     }
                 }
             });
         }
 
     </script>
-     <?php include_once("includes/footer.php"); ?>
+    <?php include_once("includes/footer.php"); ?>
 </body>
 
 </html>

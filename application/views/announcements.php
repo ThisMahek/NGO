@@ -20,9 +20,10 @@
                                             <div class="row align-items-center justify-content-between">
                                                 <div class="col-lg-12">
                                                     <div class="info mt-4 mt-lg-0">
-                                                        <h2 class="fsz-30px mb-40"> Our styleguide for our users is very easy to catch </h2>
+                                                        <h2 class="fsz-30px mb-40"><?=$announcements_data->title?> </h2>
                                                         <div class="text fsz-14px color-666 mb-60">
-                                                            The about us page is often a reflection of the purpose & personality of the business and its owners or top employees. Finally, the page can also incorporate contact or locational information.
+                                                        <?=$announcements_data->description?> 
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>

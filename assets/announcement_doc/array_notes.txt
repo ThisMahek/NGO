@@ -1,0 +1,97 @@
+ Array:-
+ =======
+=> an array is a special variable which can hold more than one value at a time.
+   
+=> array is a collection of similar type of data items.
+
+=> array is used to store bulk records (data).
+
+=> array works on the basis of index. first of an array is zero(0)
+   and last index of an array is (size-1) or (length-1).
+ 
+=> array doesnot used to save memory space; it just simpliflies the task 
+of a program.
+
+=> we can easily handle various values of same type by using array.
+
+   syntax to create array:
+ ============================
+Data_type Array_Name[size];
+
+ex: int nums[10];
+
+note: in above array we have combination of 10 int variables and 
+names of that variables are:-
+
+nums[0],nums[1],nums[2],nums[3],nums[4],nums[5],nums[6],nums[7],nums[8],nums[9]
+
+
+   types of array
+  =================
+
+1) single(one) dimenional array.
+ex:int arr[5];
+2) 2 dimensional (2-D) array.  
+   ex:int arr[5][3]
+   123
+   123
+   123
+   123
+   123
+
+3)multidimensional array:
+ex:int arr[0][1][2];
+ 
+12
+
+
+
+2-D Array:-
+-------------
+=>2  dimentional  array is used to store complex data.
+=>2 d  array work in matix format.
+=>so we can store very large amount  of data in  a2-d  array.
+ 
+ syntax:-
+ =====
+ DataType ArrayName[Row][Column];
+ Ex:- int arr[2][2];
+ 
+ NOTE:-It will store total 4 values.
+ 
+ String:-
+ -----------
+  =>string is a collecton of characters.
+  =>In c string is an array of characters.
+  =>string.h header file provides various built-in string function to perfom string operation.
+ 
+  syntax: char str[Size];
+  Ex: char name[20];
+  
+  Some Important string handling functions:-
+  ----------------------------------------
+  1)strlen():-It stands for string length.This function is used to get length(number of characters) in agiven 
+  string.
+  syntax:int strlen(string_variable/value);
+  NOTE:-here int is return type.
+  
+  2)strupr():-It stand for string upper.This function is used to convert a given string into uppercase.
+  synatx:-char*strupr(string_variable/value);
+  
+  3)strlwr():-
+  
+  4)strrev():-Its stands for string reverse.This function is used to get reverse of a specified string.
+  syntax:-char*strrev(string_variable/value);
+
+5)strcat():-It stand for string concatenation .This function is used to concat two strings.
+syntax:strcat(str1,str2);
+NOTE:-It will concat string at end of the str1.
+
+6)strcmp():-	This function is used to comapre two strings.In both string are identical(equal ) then it 
+will return 0 (zero) .If first string is greater than from second then it will return 1 otherwise it will
+return -1.
+syntax:int strcmp(str1,str2); 
+
+7)strcpy(str2,str1)\\ str1 ko copy krna hai str2 main.
+
+Null terminating character \0

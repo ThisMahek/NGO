@@ -1,4 +1,5 @@
 <!-- ====== start footer ====== -->
+<?php $data=$this->db->get('setting')->row();?>
 <footer class="footer-style5 pt-80">
     <div class="container">
         <div class="content mb-3">
@@ -11,28 +12,28 @@
                         <ul class="contact-info m-0">
                             <li>
                                 <i class="la la-home me-2"></i>
-                                <span>223 Orchard St, Manhattan, NY 9032</span>
+                                <span><?=$data->address?></span>
                             </li>
                             <li>
                                 <i class="la la-phone me-2"></i>
-                                <span>+031 5689 89 98</span>
+                                <span>+<?=$data->alt_mob_no?></span>
                             </li>
                             <li>
                                 <i class="la la-envelope me-2"></i>
-                                <span>technology@Newzin.com</span>
+                                <span><?=$data->email?></span>
                             </li>
                         </ul>
                         <div class="social-links mt-50">
-                            <a href="#">
+                            <a href="<?=$data->twitter?>" target="blank">
                                 <i class="la la-twitter"></i>
                             </a>
-                            <a href="#">
+                            <a href="<?=$data->facebook?>" target="blank">
                                 <i class="la la-facebook-f"></i>
                             </a>
-                            <a href="#">
+                            <a href="<?=$data->instagram?>" target="blank">  
                                 <i class="la la-instagram"></i>
                             </a>
-                            <a href="#">
+                            <a href="<?=$data->youtube?>" target="blank">
                                 <i class="la la-youtube"></i>
                             </a>
                         </div>
@@ -68,8 +69,46 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="d-flex align-items-end">
+<<<<<<< HEAD
                         <div class="text fsz-14px color-ccc">
                             © 2023 Copyrights by <span class="text-white">Sarv Seva</span>. All Rights Reserved.
+=======
+                        <a href="#" class="foot-logo">
+                            <img src="<?php echo base_url(); ?><?=$data->logo?>" alt="" width="25%">
+                        </a>
+                        <div class="text ps-70 fsz-14px color-ccc">
+                            © 2023 Copyrights by <span class="text-white">Newzin</span>. All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="foot-lang">
+                        <div class="another-lang-links">
+                            <a href="#" class="lang-link text-white">
+                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
+                                    <img src="<?php echo base_url(); ?>user_assets/img/ar.svg" alt="">
+                                </span>
+                                <span> arabic </span>
+                            </a>
+                            <a href="#" class="lang-link text-white">
+                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
+                                    <img src="<?php echo base_url(); ?>user_assets/img/en.svg" alt="">
+                                </span>
+                                <span> English </span>
+                            </a>
+                            <a href="#" class="lang-link text-white">
+                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
+                                    <img src="<?php echo base_url(); ?>user_assets/img/fr.svg" alt="">
+                                </span>
+                                <span> french </span>
+                            </a>
+                        </div>
+                        <div class="lang-link text-white">
+                            <span class="flag icon-30 rounded-circle overflow-hidden img-cover me-3">
+                                <img src="<?php echo base_url(); ?>user_assets/img/en.svg" alt="">
+                            </span>
+                            <span> English <i class="la la-angle-up"></i> </span>
+>>>>>>> 7beb54fb04e3f0faadc026f39fd2ed4899b8d3fe
                         </div>
                     </div>
                 </div>

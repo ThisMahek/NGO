@@ -11,7 +11,7 @@ class UserLogin extends CI_Controller
     public function process_login_user()
     {
         $email = $this->input->post('email');
-        $password = md5($this->input->post('password'));
+        $password = base64_encode($this->input->post('password'));
         $user_data = $this->UM->check_user_data($email);
         if (!empty($user_data)) {
             if ($user_data->password == $password) {
@@ -56,9 +56,9 @@ class UserLogin extends CI_Controller
         $user_id = $this->session->userdata('user_id');
         $user = $this->UM->user_profile($user_id);
         $current = $user->password;
-        $password = md5($this->input->post('password'));
+        $password = base64_encode($this->input->post('password'));
         if ($password == $current) {
-            $newpassword = md5($this->input->post('password1'));
+            $newpassword = base64_encode($this->input->post('password1'));
             $response = $this->UM->change_password($newpassword);
             if ($response) {
                 $this->session->set_flashdata('success', '<script>

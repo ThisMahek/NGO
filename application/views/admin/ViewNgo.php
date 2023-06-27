@@ -38,18 +38,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        $i=1;
+
+foreach($organisation as $row){
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>19875214</td>
-                                            <td>Any</td>
-                                            <td>info@gmail.com</td>
-                                            <td>12345</td>
+                                            <td><?=$i++?></td>
+                                            <td><?=$row->application_no?></td>
+                                            <td><?=$row->organisation_name?></td>
+                                            <td><?=$row->org_email?></td>
+                                            <td><?=base64_decode($row->password)?></td>
                                             <td>Pending</td>
                                             <td>
                                                 <!-- <a href="<?php echo base_url();?>admin/editTabs" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a> -->
                                                 <a href="#" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
                                             </td>
-                                        </tr>                                                                                   
+                                        </tr>
+                                        <?php }?>                                                                                   
                                     </tbody>
                                 </table>
                             </div>

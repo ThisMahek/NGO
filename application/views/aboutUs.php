@@ -20,14 +20,14 @@
                                             <div class="row align-items-center justify-content-between">
                                                 <div class="col-lg-6">
                                                     <div class="img img-cover">
-                                                        <img src="<?php echo base_url();?>user_assets/img/about_page/about.jpg" alt="">
+                                                        <img src="<?php echo base_url();?><?=$about->image?>" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-5">
                                                     <div class="info mt-4 mt-lg-0">
-                                                        <h2 class="fsz-30px mb-40"> Our styleguide for our users <br> is very easy to catch </h2>
+                                                        <!-- <h2 class="fsz-30px mb-40"> Our styleguide for our users <br> is very easy to catch </h2> -->
                                                         <div class="text fsz-14px color-666 mb-60">
-                                                            The about us page is often a reflection of the purpose & personality of the business and its owners or top employees. Finally, the page can also incorporate contact or locational information.
+                                                        <?=$about->content?>
                                                         </div>
                                                     </div>
                                                 </div>
