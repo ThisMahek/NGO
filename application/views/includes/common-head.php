@@ -50,4 +50,5 @@
         .text-white{color:#fff;}
         .text-bold{font-weight:bold;}
         .btn-close:focus {box-shadow: none;}
+        .btn-search{background: transparent;border: none;}
     </style>

@@ -171,7 +171,7 @@
                                                     <p class="fsz-13px color-main"><?=$a->organisation_name?> </p>
                                                     <h5 class="fsz-22px fw-bold"><?=$a->title?></h5>
                                                 </div>
-                                                <div class="text fsz-14px color-666 mb-50">
+                                                <div class="text fsz-14px color-666 mb-20">
                                                
                                                 <?php
                                                 $string = strip_tags($a->description);
@@ -181,7 +181,7 @@
                                                         $endPoint = strrpos($stringCut, ' ');
                                                         //if the string doesn't contain any space then it will cut without word basis.
                                                         $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                                        $string .= '... <a href="'.base_url("user/requirements/$a->id").'">Read More</a>';
+                                                        $string .= '... <br><br><a href="'.base_url("user/requirements/$a->id").'">Read More</a>';
                                                     }
                                                     echo $string;
                                                 ?>
