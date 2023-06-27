@@ -11,7 +11,7 @@
     <title><?php echo $title; ?> </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?php echo base_url();?><?=$data->logo?>" title="Favicon" sizes="16x16" />
+    <link rel="shortcut icon" href="<?php echo base_url();?><?=$data->favicon_image?>" title="Favicon" sizes="16x16" />
 
     <!-- bootstrap 5 -->
     <link rel="stylesheet" href="<?php echo base_url();?>user_assets/css/lib/bootstrap.min.css">

@@ -270,5 +270,79 @@ class AdminBackend extends CI_Controller
         }
         redirect(base_url()."admin/ViewAnnouncements");
     }
-
+    public function add_edit_setting()
+	{
+        $id = isset($_POST['id'])?$_POST['id']:1;
+        $setting_data=$this->db->where('id',$id)->get('setting')->row();
+        $uri=$this->input->post('uri'); 
+        $insert_array['address'] =isset($_POST['address'])? $_POST['address']: $setting_data->address;
+		$insert_array['mob_no'] =isset($_POST['mob_no'])? $_POST['mob_no']: $setting_data->mob_no; 
+        $insert_array['alt_mob_no']= isset($_POST['alt_mob_no'])? $_POST['alt_mob_no']: $setting_data->alt_mob_no; 
+        $insert_array['email'] = isset($_POST['email'])? $_POST['email']: $setting_data->email; 
+        $insert_array['linkdin'] =isset($_POST['linkdin'])? $_POST['linkdin']: $setting_data->linkdin;
+		$insert_array['twitter'] =isset($_POST['twitter'])? $_POST['twitter']: $setting_data->twitter; 
+        $insert_array['instagram']= isset($_POST['instagram'])? $_POST['instagram']: $setting_data->instagram; 
+        $insert_array['youtube'] = isset($_POST['youtube'])? $_POST['youtube']: $setting_data->youtube; 
+        $insert_array['facebook'] = isset($_POST['facebook'])? $_POST['facebook']: $setting_data->facebook; 
+        
+		// //start file uplaoded code
+		$file = $_FILES["logo"];
+		$MyFileName = "";
+		if (strlen($file['name']) > 0) {
+			$gallery_img = $file["name"];
+			$config['upload_path'] = './user_assets/img/';
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['file_name'] = $file['name'];
+			$this->load->library("upload", $config);
+			$filestatus = $this->upload->do_upload('logo');
+			if ($filestatus == true) {
+				$MyFileName = $this->upload->data('file_name');
+				$insert_array['logo'] = "/user_assets/img/" . $MyFileName;
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				$result = $error;
+			}
+		}
+        $file = $_FILES["favicon_img"];
+		$MyFileName = "";
+		if (strlen($file['name']) > 0) {
+			$gallery_img = $file["name"];
+			$config['upload_path'] = './user_assets/img/';
+			$config['allowed_types'] = 'jpg|png|jpeg';
+			$config['file_name'] = $file['name'];
+			$this->load->library("upload", $config);
+			$filestatus = $this->upload->do_upload('favicon_img');
+			if ($filestatus == true) {
+				$MyFileName = $this->upload->data('file_name');
+				$insert_array['favicon_image'] = "/user_assets/img/" . $MyFileName;
+			} else {
+				$error = array('error' => $this->upload->display_errors());
+				$result = $error;
+			}
+		}
+	
+            
+			$response = $this->CM->data_update('setting', $insert_array, array('id' => $id));
+            $msg = 'updated';
+		if ($response) {
+			$this->session->set_flashdata('success', '<script>
+		swal({
+			title: "Congratulations!",
+			text: "Data ' . $msg . ' Successfully!",
+			icon: "success",
+			});
+		</script>');
+			redirect(base_url() . "admin/$uri");
+		} else {
+			$this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Something went wrong",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+            redirect(base_url() . "admin/$uri");
+		}
+	}
 }
