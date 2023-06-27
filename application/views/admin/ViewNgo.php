@@ -34,14 +34,14 @@
                                             <th>Email</th>
                                             <th>Password</th>
                                             <th>Status</th>
+                                            <th>Approved/Reject</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $i=1;
-
-foreach($organisation as $row){
+                                            foreach($organisation as $row){
                                         ?>
                                         <tr>
                                             <td><?=$i++?></td>
@@ -50,6 +50,11 @@ foreach($organisation as $row){
                                             <td><?=$row->org_email?></td>
                                             <td><?=base64_decode($row->password)?></td>
                                             <td>Pending</td>
+                                            <td class="text-center">
+                                                <div class="form-check form-switch form-switch-success">
+                                                    <input class="form-check-input" type="checkbox" id="customSwitchSuccess">
+                                                </div>
+                                            </td>
                                             <td>
                                                 <!-- <a href="<?php echo base_url();?>admin/editTabs" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a> -->
                                                 <a href="#" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>

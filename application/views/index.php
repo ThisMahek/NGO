@@ -17,40 +17,35 @@
                         <div class="tc-post-overlay-style5 mb-5 mb-lg-0">
                             <div class="tc-post-overlay-slider5">
                                 <div class="swiper-container">
-                                    <?php
-                                    $i = 0;
-                                    //<?= $i== 0 ? 'active':''?
-                                    foreach ($slider_data as $s) {
+                                    <div class="swiper-wrapper">
+                                        <?php
+                                        $i = 0;
+                                        //<?= $i== 0 ? 'active':''?
+                                        foreach ($slider_data as $s) {
                                         ?>
-                                        <div class="swiper-wrapper">
-
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <div class="img th-525 img-cover">
-
-                                                        <img src="<?php echo base_url(); ?><?= $s->image ?>" alt="">
-
-                                                    </div>
-                                                    <div class="info">
-                                                        <div class="text mb-40 fsz-16px">
-                                                            <?= $s->title ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php $i++;
-                                    } ?>
-
-                                        <!-- arrows -->
-                                        <div class="arrows">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
+                                        <div class="swiper-slide">
+                                        <div class="item">
+                                        <div class="img th-525 img-cover">
+                                        <img src="<?php echo base_url(); ?><?= $s->image ?>" alt="">
                                         </div>
+                                        <div class="info">
+                                        <h2 class="title mb-20">
+                                        <?= $s->title ?>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
+                            <?php $i++; } ?>
+                            </div>
+                        </div>
+                        <!-- arrows -->
+                        <div class="arrows">
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
         <!-- ====== Slider End ====== -->
 
