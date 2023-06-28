@@ -2,11 +2,13 @@
 <?php $data=$this->db->get('setting')->row();?>
 <footer class="footer-style5 pt-80">
     <div class="container">
-        <div class="content">
+        <div class="content mb-3">
             <div class="row justify-content-between">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="info">
-                        <h6 class="foot-tilte mb-40">Newzin - Business Magazine</h6>
+                        <a href="#" class="foot-logo">
+                            <img src="<?php echo base_url(); ?>user_assets/img/logo_home5_lt.png" alt="" width="25%">
+                        </a>
                         <ul class="contact-info m-0">
                             <li>
                                 <i class="la la-home me-2"></i>
@@ -37,60 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 mt-5 mt-lg-0">
-                    <div class="link-group">
-                        <h6 class="foot-tilte mb-40">Topics</h6>
-                        <ul>
-                            <li>
-                                <a href="#" class="f-link">News</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">business</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Tech</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">politics</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">economy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">market</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Videos</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 mt-5 mt-lg-0">
-                    <div class="link-group">
-                        <h6 class="foot-tilte mb-40">Help</h6>
-                        <ul>
-                            <li>
-                                <a href="#" class="f-link">About</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Advertise</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Career</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">Policy</a>
-                            </li>
-                            <li>
-                                <a href="#" class="f-link">FAQ</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 mt-5 mt-lg-0">
+                <div class="col-lg-6 mt-5 mt-lg-0">
                     <div class="newsletter">
                         <h6 class="foot-tilte mb-40">newsletter</h6>
                         <div class="cont">
@@ -116,46 +65,14 @@
                 </div>
             </div>
         </div>
-
-        <div class="foot mt-100 pb-60">
+        <div class="foot mt-3 pb-20">
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="d-flex align-items-end">
-                        <a href="#" class="foot-logo">
-                            <img src="<?php echo base_url(); ?><?=$data->logo?>" alt="" width="25%">
-                        </a>
-                        <div class="text ps-70 fsz-14px color-ccc">
-                            © 2023 Copyrights by <span class="text-white">Newzin</span>. All Rights Reserved.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <div class="foot-lang">
-                        <div class="another-lang-links">
-                            <a href="#" class="lang-link text-white">
-                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
-                                    <img src="<?php echo base_url(); ?>user_assets/img/ar.svg" alt="">
-                                </span>
-                                <span> arabic </span>
-                            </a>
-                            <a href="#" class="lang-link text-white">
-                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
-                                    <img src="<?php echo base_url(); ?>user_assets/img/en.svg" alt="">
-                                </span>
-                                <span> English </span>
-                            </a>
-                            <a href="#" class="lang-link text-white">
-                                <span class="flag icon-20 rounded-circle overflow-hidden img-cover me-3">
-                                    <img src="<?php echo base_url(); ?>user_assets/img/fr.svg" alt="">
-                                </span>
-                                <span> french </span>
-                            </a>
-                        </div>
-                        <div class="lang-link text-white">
-                            <span class="flag icon-30 rounded-circle overflow-hidden img-cover me-3">
-                                <img src="<?php echo base_url(); ?>user_assets/img/en.svg" alt="">
-                            </span>
-                            <span> English <i class="la la-angle-up"></i> </span>
+
+                        <div class="text fsz-14px color-ccc">
+                        <div class="text  fsz-14px color-ccc">
+                            © 2023 Copyrights by <span class="text-white">Sarv Sewa</span>. All Rights Reserved.
                         </div>
                     </div>
                 </div>

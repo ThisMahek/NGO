@@ -53,7 +53,8 @@
                                                 <?= $i++ ?>
                                             </td>
                                             <td><?= $row->title ?></td>
-                                            <td><img src="<?php echo base_url(); ?><?= $row->image ?>" width="10%"></td>
+                                            <td><a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewImage<?=$row->id ?>"><i class="fa fa-eye"></i></a></td>
+                                            <!-- <td><img src="<?php echo base_url(); ?><?= $row->image ?>" width="10%"></td> -->
                                             <td>
                                                 <?php
                                                 if ($row->status == 1) { ?>
@@ -72,6 +73,24 @@
                                                     class="btn btn-danger" title="Delete"><i class="fa fa-trash" onclick="return confirm('Are you sure want to delete this slider!')"></i></a>
                                             </td>
                                         </tr>
+                                        <!-- ===========View Image Modal============ -->
+                                        <div class="modal fade" id="viewImage<?=$row->id?>" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Image</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <img src="<?php echo base_url(); ?><?= $row->image ?>" width="100%">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- ======================================== -->
+
                                     <?php } ?>
                                 </tbody>
                             </table>

@@ -21,6 +21,7 @@ class User extends CI_Controller
 		$data['slider_data'] = $this->UM->show_slider_data();
 		$data['announcements_data'] = $this->UM->show_announcements_data();
 		$data['requirement_data'] = $this->UM->show_requirement();
+		$data['about_us']=$this->db->where(['status'=>'Active','order_no'=>1])->get('nav')->row();
 		$this->load->view('index', $data);
 
 	}
@@ -153,7 +154,8 @@ class User extends CI_Controller
 		$insert_array['contact_person'] = isset($_POST['contact_person']) ? $_POST['contact_person'] : $organisation_data->contact_person;
 		$insert_array['cp_designation'] = isset($_POST['cp_designation']) ? $_POST['cp_designation'] : $organisation_data->cp_designation;
 		$insert_array['cp_email_id'] = isset($_POST['cp_email_id']) ? $_POST['cp_email_id'] : $organisation_data->cp_email_id;
-		$insert_array['address'] = isset($_POST['address']) ? $_POST['address'] : $organisation_data->address;
+		$insert_array['city'] = isset($_POST['city']) ? $_POST['city'] : $organisation_data->city;
+		$insert_array['state'] = isset($_POST['state']) ? $_POST['state'] : $organisation_data->state;
 		//start file uplaoded code
 		$file = $_FILES["address_proof_img"];
 		$MyFileName = "";
@@ -259,7 +261,7 @@ class User extends CI_Controller
 		$insert_array['registration_no'] = isset($_POST['registration_no']) ? $_POST['registration_no'] : $organisation_data->registration_no;
 		$insert_array['registration_date'] = isset($_POST['registration_date']) ? $_POST['registration_date'] : $organisation_data->registration_date;
 		$insert_array['registration_under'] = isset($_POST['registration_under']) ? $_POST['registration_under'] : $organisation_data->registration_under;
-		$insert_array['state'] = isset($_POST['state']) ? $_POST['state'] : $organisation_data->state;
+		
 		//start file uplaoded code
 		$file = $_FILES["user_img"];
 		$MyFileName = "";
@@ -494,6 +496,25 @@ class User extends CI_Controller
 		}
 		redirect(base_url() . "client/ViewRequirements");
 	}
+	public function showcity(){
+            
+		$val=$this->input->post('val');
+	   $query = $this->db->query("SELECT `city_name` AS city FROM `education_center_city` WHERE `city_state`='$val' ");
+		$st_arr=$query->result_array();
+		$html="";
+		$html.="<select class='form-control' name='city' id='exampleFormControlSelect2' required>
+		<option value=''>Select City</option></option>";
+		foreach($st_arr as $st_arr){ 
+		$city=$st_arr['city'];
+		$html.="<option value='$city'>$city</option>";
+		}  
+		
+		$html.="</select>";
+		
+		echo $html;
+		
+		
+		}
 
 
 }

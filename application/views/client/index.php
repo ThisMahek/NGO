@@ -80,11 +80,28 @@ $st_arr = $query->result_array();
                                         required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Address<span
-                                            class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="" value="<?= $organisation->address ?>"
-                                        name="address" required>
-                                </div>
+                                        <label for="exampleInputEmail1" class="form-label">State<span class="text-danger">*</span></label>
+                                        <select class="form-control stat" name="state">
+                                        <option value="">Select State</option>
+                                        <?php
+                                        foreach($st_arr as $stt){
+                                        $sate=$stt['state'];
+                                        print_r($sate);
+                                        ?>   
+                                        <option value='<?=$sate;?>' <?php if($sate==$organisation->state){echo'selected';}?> ><?=$sate;?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">District<span class="text-danger">*</span></label>
+                                        <div id='cit'>
+                                               <select class="form-control inputtags" name="city"  id="states_val" required>
+                                            <option value='<?=$organisation->city?>'><?=$organisation->city?></option>
+                                            </select>
+                                            </div>
+                                    </div>
                                 <div class="col-md-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Contacts </h4>
@@ -139,21 +156,22 @@ $st_arr = $query->result_array();
             </div>
             <?php include_once("includes/footer.php"); ?>
             <script>
-            $('.stat').on('change', function() {
-            var val=this.value;
-            if(val==''){
-            $('#st_error').html('Required').show();  
-            }else{
-            $.ajax({
-            type: "POST",
-            url: "<?= base_url() ?>Master/showcity",
-            data: { val: val },
-            success: function (data) {
-
-            $('#cit').html(data).show();
-            }
-            }); 
-
-            }
-            });
+                
+                    $('.stat').on('change', function() {
+  var val=this.value;
+                    if(val==''){
+                        $('#st_error').html('Required').show();  
+  }else{
+                        $.ajax({
+                            type: "POST",
+                            url: "<?= base_url() ?>User/showcity",
+                            data: { val: val },
+                            success: function (data) {
+                                $('#cit').html(data).show();
+                            }
+                        }); 
+     
+  }
+});
             </script>
+         

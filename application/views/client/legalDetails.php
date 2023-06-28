@@ -42,10 +42,10 @@
                                         <label for="exampleInputEmail1" class="form-label">Registration Date<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" id="" value="<?=$organisation->registration_date?>" name="registration_date" required>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <!-- <div class="col-md-6 mb-3">
                                         <label for="exampleInputEmail1" class="form-label">State where Registerd<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="" value="<?=$organisation->state?>" name="state" required>
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-6 mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Registration Document<span class="text-danger">*</span></label>
                                         <div

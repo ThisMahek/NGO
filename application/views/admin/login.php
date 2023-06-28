@@ -16,7 +16,7 @@
                                 <div class="card-body p-0 auth-header-box">
                                     <div class="text-center p-3">
                                         <a href="<?php echo base_url();?>" class="logo logo-admin">
-                                            <img src="<?php echo base_url();?>assets//images/logo-sm.png" height="50" alt="logo" class="auth-logo">
+                                            <img src="<?php echo base_url();?>user_assets/img/logo_home5.png" height="50" alt="logo" class="auth-logo">
                                         </a>
                                         <h4 class="mt-3 mb-1 fw-semibold text-white font-18">Admin Login</h4>    
                                     </div>

@@ -17,40 +17,35 @@
                         <div class="tc-post-overlay-style5 mb-5 mb-lg-0">
                             <div class="tc-post-overlay-slider5">
                                 <div class="swiper-container">
-                                    <?php
-                                    $i = 0;
-                                    //<?= $i== 0 ? 'active':''?
-                                    foreach ($slider_data as $s) {
+                                    <div class="swiper-wrapper">
+                                        <?php
+                                        $i = 0;
+                                        //<?= $i== 0 ? 'active':''?
+                                        foreach ($slider_data as $s) {
                                         ?>
-                                        <div class="swiper-wrapper">
-
-                                            <div class="swiper-slide">
-                                                <div class="item">
-                                                    <div class="img th-525 img-cover">
-
-                                                        <img src="<?php echo base_url(); ?><?= $s->image ?>" alt="">
-
-                                                    </div>
-                                                    <div class="info">
-                                                        <div class="text mb-40 fsz-16px">
-                                                            <?= $s->title ?>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php $i++;
-                                    } ?>
-
-                                        <!-- arrows -->
-                                        <div class="arrows">
-                                            <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div>
+                                        <div class="swiper-slide">
+                                        <div class="item">
+                                        <div class="img th-525 img-cover">
+                                        <img src="<?php echo base_url(); ?><?= $s->image ?>" alt="">
                                         </div>
+                                        <div class="info">
+                                        <h2 class="title mb-20">
+                                        <?= $s->title ?>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
+                            <?php $i++; } ?>
+                            </div>
+                        </div>
+                        <!-- arrows -->
+                        <div class="arrows">
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
         <!-- ====== Slider End ====== -->
 
@@ -171,7 +166,7 @@
                                                     <p class="fsz-13px color-main"><?=$a->organisation_name?> </p>
                                                     <h5 class="fsz-22px fw-bold"><?=$a->title?></h5>
                                                 </div>
-                                                <div class="text fsz-14px color-666 mb-50">
+                                                <div class="text fsz-14px color-666 mb-20">
                                                
                                                 <?php
                                                 $string = strip_tags($a->description);
@@ -181,7 +176,7 @@
                                                         $endPoint = strrpos($stringCut, ' ');
                                                         //if the string doesn't contain any space then it will cut without word basis.
                                                         $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                                        $string .= '... <a href="'.base_url("user/requirements/$a->id").'">Read More</a>';
+                                                        $string .= '... <br><br><a href="'.base_url("user/requirements/$a->id").'">Read More</a>';
                                                     }
                                                     echo $string;
                                                 ?>
@@ -200,6 +195,42 @@
             </div>
         </section>
         <!-- ====== end about-history ====== -->
+        
+        <!-- ====== start About Us ====== -->
+        <section class="tc-post-grid-style5 mt-5 overflow-hidden">
+            <div class="container">
+                <div class="content pb-50 border-1 border-bottom brd-gray">
+                    <div class="row gx-5">
+                        <div class="col-lg-12 border-1  brd-gray mb-5 mb-lg-0">
+                            <div class="item">
+                                <div class="content">
+                                    <h2 class="title mb-20">About Us</h2>
+                                    <div class="text color-666 mb-20 ">
+                                        <?php
+                                    $string = strip_tags($about_us->content);
+                                                    if (strlen($string) >150) {
+                                                        // truncate string
+                                                        $stringCut = substr($string, 0, 100);
+                                                        $endPoint = strrpos($stringCut, ' ');
+                                                        //if the string doesn't contain any space then it will cut without word basis.
+                                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                                        $string .= '[...]';
+                                                    }
+                                                    echo $string;
+                                                ?>
+                                  
+                                    
+                                        <br><br><a href='<?=base_url("$about_us->url/$about_us->id")?>' class="ancor-tag">Read More</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end About Us ====== -->
     </main>
     <!--End-Contents-->
     <!-- ====== Registration Modal  ====== -->
