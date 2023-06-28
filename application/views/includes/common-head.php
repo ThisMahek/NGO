@@ -51,4 +51,6 @@
         .text-bold{font-weight:bold;}
         .btn-close:focus {box-shadow: none;}
         .btn-search{background: transparent;border: none;}
+        .ancor-tag{font-size: 14px;text-transform: uppercase;letter-spacing: 2px;font-weight: 500;}
+        .ancor-tag:hover {color: var(--color-main);}
     </style>

@@ -4,11 +4,11 @@
 <meta content="" name="description" />
 <meta content="" name="description" />
 
-<meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+<meta content="" name="description" />
 
 <meta content="" name="author" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon.ico">
+<link rel="shortcut icon" href="<?php echo base_url();?>user_assets/img/logo_home5.png">
 <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>assets/css/app.min.css" rel="stylesheet" type="text/css" />

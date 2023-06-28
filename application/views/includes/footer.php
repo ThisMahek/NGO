@@ -72,7 +72,7 @@
 
                         <div class="text fsz-14px color-ccc">
                         <div class="text  fsz-14px color-ccc">
-                            © 2023 Copyrights by <span class="text-white">Newzin</span>. All Rights Reserved.
+                            © 2023 Copyrights by <span class="text-white">Sarv Sewa</span>. All Rights Reserved.
                         </div>
                     </div>
                 </div>

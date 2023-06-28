@@ -52,9 +52,42 @@
                                         <label for="exampleInputEmail1" class="form-label">Designation of Person Filling the Form<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="" value="<?=$organisation->designation?>" name="designation"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="page-title-box">
+                                            <h4 class="page-title">Address </h4>
+                                        </div>
+                                    </div><hr>
                                     <div class="col-md-6 mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Address<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="" value="<?=$organisation->address?>" name="address"  required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">City/Town/Village/Taluka<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="" value="<?=$organisation->address?>" name="address" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">State<span class="text-danger">*</span></label>
+                                        <select class="form-control">
+                                            <option>Bihar<option>
+                                            <option>Up<option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">District<span class="text-danger">*</span></label>
+                                        <select class="form-control">
+                                            <option>Bihar<option>
+                                            <option>Up<option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">PIN No.<span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="mob_no_id" name="cp_mob_no" value="" oninput="validate_mobile('mob_no_id', 'mobile_error', 'btn')" onkeypress="return (event.charCode > 47 && event.charCode < 58)" required>
+                                        <span id="mobile_error"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Organisation Mobile No.<span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="mob_no_id" name="cp_mob_no" value="<?=$organisation->cp_mob_no?>" oninput="validate_mobile('mob_no_id', 'mobile_error', 'btn')" onkeypress="return (event.charCode > 47 && event.charCode < 58)" required>
+                                        <span id="mobile_error"></span>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="page-title-box">

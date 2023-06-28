@@ -195,6 +195,29 @@
             </div>
         </section>
         <!-- ====== end about-history ====== -->
+        
+        <!-- ====== start About Us ====== -->
+        <section class="tc-post-grid-style5 mt-5 overflow-hidden">
+            <div class="container">
+                <div class="content pb-50 border-1 border-bottom brd-gray">
+                    <div class="row gx-5">
+                        <div class="col-lg-12 border-1  brd-gray mb-5 mb-lg-0">
+                            <div class="item">
+                                <div class="content">
+                                    <h2 class="title mb-20">About Us</h2>
+                                    <div class="text color-666 mb-20 ">
+                                        The social-media company is in discussions to sell itself to Elon, a dramatic turn of events just 11 days after the. Blake Lemoine published conversations with the AI, which he called a "person," but Google said the evidence doesn't [...]
+                                    
+                                        <br><br><a href="#" class="ancor-tag">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ====== end About Us ====== -->
     </main>
     <!--End-Contents-->
     <!-- ====== Registration Modal  ====== -->
