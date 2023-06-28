@@ -65,34 +65,6 @@
                                 class="light-none">
                         </a>
                     </div>
-                    <!-- <div class="col-lg-5">
-                    <div class="date-weather mb-3 mb-lg-0">
-                        <div class="row align-items-center">
-                            <div class="col-6">
-                                <div class="item">
-                                    <div class="icon me-3 pt-1">
-                                        <i class="la la-calendar"></i>
-                                    </div>
-                                    <div class="inf">
-                                        <strong>Monday</strong>
-                                        <p>Nov 25, 2023</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="item">
-                                    <div class="icon me-3 pt-1">
-                                        <i class="la la-cloud-sun"></i>
-                                    </div>
-                                    <div class="inf">
-                                        <strong>32oC, Cloudy</strong>
-                                        <p>New York</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                     <div class="col-lg-10">
                         <div class="sub-darkLight">
                             <form action="<?= base_url() ?>User/ngoList" class="bdr-bottom" method="post">
