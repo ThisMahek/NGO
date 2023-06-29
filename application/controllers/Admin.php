@@ -140,6 +140,9 @@ class Admin extends CI_Controller
 		$data['title'] = 'NGO - Admin | View Ngo';
 		$data['pageName'] = 'View Ngo';
 		$data['organisation']=$this->AM->show_organisation_data();
+		$data['blank']=$this->AM->show_blank_value();
+		//echo $this->db->last_query();die();
+		//print_r($data['blank']);exit;
 		$this->load->view('admin/ViewNgo', $data);
 	}
 	// =========================================

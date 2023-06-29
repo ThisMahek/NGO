@@ -42,6 +42,7 @@
                                         <?php
                                         $i=1;
                                             foreach($organisation as $row){
+                                                
                                         ?>
                                         <tr>
                                             <td><?=$i++?></td>
@@ -49,15 +50,34 @@
                                             <td><?=$row->organisation_name?></td>
                                             <td><?=$row->org_email?></td>
                                             <td><?=base64_decode($row->password)?></td>
-                                            <td>Pending</td>
-                                            <td class="text-center">
+                                           <?php
+                                           if($row->application_no!="" && $row->it_pan!="" && $row->website_url!=""  && $row->person_name !="" && $row->designation!=""  && $row->contact_person!=""  && $row->cp_designation!=""  && $row->cp_email_id!=""  && $row->cp_descriptions !="" && $row->registration_as !="" && $row->registration_no!=""  && $row->address_proof!=""  && $row->state!="" && $row->document!="" && $row->organisation_logo!="" && $row->pan_registration_document!="" && $row->registration_date!="" && $row->city!="" && $row->district!="" && $row->pin!="" )
+                                           {
+                                           ?>
+                                            <td>Complete</td>
+                                            <?php }else{?>
+                                                <td>Incomplete</td>
+                                                <?php }?>
+                                            <!-- <td class="text-center">
                                                 <div class="form-check form-switch form-switch-success">
-                                                    <input class="form-check-input" type="checkbox" id="customSwitchSuccess">
+                                                  <a href="<?php echo base_url();?>AdminBackend/change_ngo_status/<?=$row->id?>">  <input class="form-check-input" type="checkbox"  name="status"<?=($row->status==1)?"checked":""?> id="customSwitchSuccess"  onclick="return confirm('Are you sure want to change status')"></a>
                                                 </div>
-                                            </td>
+                                            </td> -->
+                                            <td>
+                                           <?php if($row->status==0){?>
+                                           <a href="<?=base_url('AdminBackend/change_ngo_status/'.$row->id.'/1')?>"><button
+                                             class="btn waves-effect waves-light btn-danger btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to approve this ?');"><i
+                                             class="fa fa-toggle-off b1"></i></button>
+                                          </a>
+                                          <?php }else { ?>
+                                          <a href="<?=base_url('AdminBackend/change_ngo_status/'.$row->id.'/0')?>"><button
+                                             class="btn waves-effect waves-light btn-success btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to reject this ?');"><i
+                                             class="fa fa-toggle-on b1"></i></button>
+                                          </a>
+                                          <?php }?>
                                             <td>
                                                 <!-- <a href="<?php echo base_url();?>admin/editTabs" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a> -->
-                                                <a href="#" class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a onclick="return confirm('Are you sure want to delete this ngo!')" href="<?php echo base_url();?>AdminBackend/delete_ngo/<?=$row->id?>"  class="btn btn-danger" title="Delete" ><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php }?>                                                                                   

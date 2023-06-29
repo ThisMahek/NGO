@@ -5,9 +5,10 @@
     <?php include_once("includes/common-head.php"); ?>
 </head>
 <?php
-$query = $this->db->query("SELECT DISTINCT(`city_state`) AS state FROM education_center_city");
+$query = $this->db->query("SELECT DISTINCT(`name`) AS state FROM state ORDER BY name ");
 $st_arr = $query->result_array();
 ?>
+
 <body id="body">
     <?php include_once("includes/sidebar.php"); ?>
     <?php include_once("includes/header.php"); ?>
@@ -49,7 +50,8 @@ $st_arr = $query->result_array();
                                     <label for="exampleInputEmail1" class="form-label">Legal (Registered) Name of
                                         Organisation <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id=""
-                                        value="<?= $organisation->organisation_name ?>" name="organisation_name" required>
+                                        value="<?= $organisation->organisation_name ?>" name="organisation_name"
+                                        required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Organisation Email Id.<span
@@ -60,8 +62,8 @@ $st_arr = $query->result_array();
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Organisation Website (URL)<span
                                             class="text-danger">*</span></label>
-                                    <input type="url" class="form-control" id="" value="<?= $organisation->website_url ?>"
-                                        name="website_url" required>
+                                    <input type="url" class="form-control" id=""
+                                        value="<?= $organisation->website_url ?>" name="website_url" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Name of Person Filling the
@@ -79,29 +81,59 @@ $st_arr = $query->result_array();
                                         onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
                                         required>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="page-title-box">
+                                        <h4 class="page-title">Address </h4>
+                                    </div>
+                                </div>
+                                <hr>
+                               
                                 <div class="col-md-6 mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">State<span class="text-danger">*</span></label>
-                                        <select class="form-control stat" name="state">
+                                    <label for="exampleInputEmail1" class="form-label">State<span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control stat" name="state" onchange="get_city(this.value)">
                                         <option value="">Select State</option>
                                         <?php
-                                        foreach($st_arr as $stt){
-                                        $sate=$stt['state'];
-                                        print_r($sate);
-                                        ?>   
-                                        <option value='<?=$sate;?>' <?php if($sate==$organisation->state){echo'selected';}?> ><?=$sate;?></option>
-                                        <?php
+                                        foreach ($st_arr as $stt) {
+                                            $sate = $stt['state'];
+                                            print_r($sate);
+                                            ?>
+                                            <option value='<?= $sate; ?>' <?php if ($sate == $organisation->state) {
+                                                echo 'selected';
+                                            } ?>><?= $sate; ?></option>
+                                            <?php
                                         }
                                         ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">District<span class="text-danger">*</span></label>
-                                        <div id='cit'>
-                                               <select class="form-control inputtags" name="city"  id="states_val" required>
-                                            <option value='<?=$organisation->city?>'><?=$organisation->city?></option>
-                                            </select>
-                                            </div>
-                                    </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">City/Town/Village/Taluka<span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control inputtags" name="city" id="states_val" required>
+                                        <option value="<?= $organisation->city ?>"   ><?= $organisation->city ?></option> 
+                                    </select>
+                                   
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="" value="<?= $organisation->address ?>"
+                                        name="address" >
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">District<span
+                                            class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id=""
+                                        value="<?= $organisation->district ?>" name="district"
+                                        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">PIN No.<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="pin" name="pin" value="<?= $organisation->pin ?>"
+                                    onkeypress="return (event.charCode >=48 && event.charCode <= 67)" required minlength="6" maxlength="6">
+                                   
+                                </div>
                                 <div class="col-md-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Contacts </h4>
@@ -156,22 +188,29 @@ $st_arr = $query->result_array();
             </div>
             <?php include_once("includes/footer.php"); ?>
             <script>
-                
-                    $('.stat').on('change', function() {
-  var val=this.value;
-                    if(val==''){
-                        $('#st_error').html('Required').show();  
-  }else{
-                        $.ajax({
-                            type: "POST",
-                            url: "<?= base_url() ?>User/showcity",
-                            data: { val: val },
-                            success: function (data) {
-                                $('#cit').html(data).show();
+
+                function get_city(stats) {
+                    var city= $('#states_val').val(); 
+                    //alert(city);   
+                    $('#states_val').html('<option value="">Select City</option>');
+                    
+                    $.ajax({
+                        url: "<?= base_url('assets/District.php') ?>",
+                        dataType: 'Json',
+                        method: "POST",
+                        data: { state: stats },
+                        success: function (res) {
+                            if (res.length > 0) {
+                                $.each(res, function (key, val) {
+                                    var sel = val == city ? "selected" : "";
+                                    $('#states_val').append('<option value="' + val + '" '+sel+' >' + val + '</option>');
+                                });
+
                             }
-                        }); 
-     
-  }
-});
+                            $('#states_val').val(city);
+
+                        }
+
+                    });
+                }
             </script>
-         

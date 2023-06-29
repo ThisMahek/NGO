@@ -25,7 +25,7 @@
     </div>
     <div class="main-menu-inner">
         <div class="topbar-left">
-            <a href="<?php echo base_url();?>admin/index" class="logo">
+            <a href="<?php echo base_url();?>" class="logo">
                 <span>
                    <h4>SARV SEVA</h4><hr>
                 </span>

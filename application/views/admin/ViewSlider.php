@@ -69,8 +69,8 @@
                                             <td>
                                                 <a href="<?php echo base_url(); ?>admin/editSlider/<?= $row->id ?>"
                                                     class="btn btn-success" title="Edit"><i class="fa fa-edit"></i></a>
-                                                <a href="<?php echo base_url(); ?>AdminBackend/delete_slider/<?= $row->id ?>"
-                                                    class="btn btn-danger" title="Delete"><i class="fa fa-trash" onclick="return confirm('Are you sure want to delete this slider!')"></i></a>
+                                                <a onclick="return confirm('Are you sure want to delete this slider!')" href="<?php echo base_url(); ?>AdminBackend/delete_slider/<?= $row->id ?>"
+                                                    class="btn btn-danger" title="Delete"><i class="fa fa-trash" ></i></a>
                                             </td>
                                         </tr>
                                         <!-- ===========View Image Modal============ -->

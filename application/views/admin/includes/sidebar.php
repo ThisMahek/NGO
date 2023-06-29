@@ -69,7 +69,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="MetricaMenus" class="main-icon-menu-pane tab-pane" role="tabpanel" aria-labelledby="dasboard-tab">
+            <div id="MetricaMenus" class="main-icon-menu-pane tab-pane " role="tabpanel" aria-labelledby="dasboard-tab">
                 <div class="title-box">
                     <h6 class="menu-title">Manage Nav Tabs</h6>
                 </div>
