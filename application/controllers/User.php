@@ -159,6 +159,7 @@ class User extends CI_Controller
 		$insert_array['district'] = isset($_POST['district']) ? $_POST['district'] : $organisation_data->district;
 		$insert_array['pin'] = isset($_POST['pin']) ? $_POST['pin'] : $organisation_data->pin;
 		$insert_array['address'] = isset($_POST['address']) ? $_POST['address'] : $organisation_data->address;
+		$insert_array['main_mob_no'] = isset($_POST['main_mob_no']) ? $_POST['main_mob_no'] : $organisation_data->main_mob_no;
 		//start file uplaoded code
 		$file = $_FILES["address_proof_img"];
 		$MyFileName = "";

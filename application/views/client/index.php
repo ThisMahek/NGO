@@ -134,6 +134,14 @@ $st_arr = $query->result_array();
                                     onkeypress="return (event.charCode >=48 && event.charCode <= 67)" required minlength="6" maxlength="6">
                                    
                                 </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Mobile No.<span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="main_mob_no_id" name="main_mob_no" value="<?= $organisation->main_mob_no ?>"
+                                    oninput="validate_mobile('main_mob_no_id', 'main_mobile_error', 'btn')"
+                                        onkeypress="return (event.charCode > 47 && event.charCode < 58)">
+                                   <span id="main_mobile_error"></span>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Contacts </h4>
