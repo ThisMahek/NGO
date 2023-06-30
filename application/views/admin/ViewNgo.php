@@ -66,13 +66,11 @@
                                             <td>
                                            <?php if($row->status==0){?>
                                            <a href="<?=base_url('AdminBackend/change_ngo_status/'.$row->id.'/1')?>"><button
-                                             class="btn waves-effect waves-light btn-danger btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to approve this ?');"><i
-                                             class="fa fa-toggle-off b1"></i></button>
+                                             class="btn waves-effect waves-light btn-danger btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to approve this ?');">Reject</button>
                                           </a>
                                           <?php }else { ?>
                                           <a href="<?=base_url('AdminBackend/change_ngo_status/'.$row->id.'/0')?>"><button
-                                             class="btn waves-effect waves-light btn-success btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to reject this ?');"><i
-                                             class="fa fa-toggle-on b1"></i></button>
+                                             class="btn waves-effect waves-light btn-success btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to reject this ?');">Approved</button>
                                           </a>
                                           <?php }?>
                                             <td>

@@ -87,10 +87,21 @@ $st_arr = $query->result_array();
                                     </div>
                                 </div>
                                 <hr>
-                               
                                 <div class="col-md-6 mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">State<span
+                                    <label for="exampleInputEmail1" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="" value="<?= $organisation->address ?>"
+                                        name="address" >
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">District<span
                                             class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id=""
+                                        value="<?= $organisation->district ?>" name="district"
+                                        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                <label for="exampleInputEmail1" class="form-label">City/Town/Village/Taluka<span class="text-danger">*</span></label>
                                     <select class="form-control stat" name="state" onchange="get_city(this.value)">
                                         <option value="">Select State</option>
                                         <?php
@@ -106,26 +117,12 @@ $st_arr = $query->result_array();
                                         ?>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">City/Town/Village/Taluka<span
-                                            class="text-danger">*</span></label>
+                                <div class="col-md-6 mb-3"> 
+                                    <label for="exampleInputEmail1" class="form-label">State<span class="text-danger">*</span></label>
                                     <select class="form-control inputtags" name="city" id="states_val" required>
                                         <option value="<?= $organisation->city ?>"   ><?= $organisation->city ?></option> 
                                     </select>
                                    
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="" value="<?= $organisation->address ?>"
-                                        name="address" >
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">District<span
-                                            class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id=""
-                                        value="<?= $organisation->district ?>" name="district"
-                                        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-                                        required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="exampleInputEmail1" class="form-label">PIN No.<span

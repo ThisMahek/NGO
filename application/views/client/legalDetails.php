@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                         <form action="<?=base_url('User/save_legalDetails')?>" method="post" enctype="multipart/form-data">
-                                <div class="row justify-content-center">
+                                <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Registration As<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="" value="<?=$organisation->registration_as?>" name="registration_as" required>
@@ -55,7 +55,7 @@
                                         <input type="file" id="input-file" name="user_img" accept="image/*" 
                                             onchange="preview(this,'image_error','image1')" hidden require />
                                             <img src="<?=base_url().$img?>" alt="" height="110" width="90" class="image" id="image1">
-                                        <label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
+                                        <br><label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
                                             to Upload Image</label>
                                             <span id="image_error"></span>
                                     </div>

@@ -1,12 +1,10 @@
 
 <footer class="footer text-center text-sm-start">
-  &copy; <script>
-  document.write(new Date().getFullYear())
-
-  </script>  <span class="text-muted d-none d-sm-inline-block float-end">Design & Developed By  <i class="mdi mdi-heart text-danger"></i> by DevTeam</span>
-
-  </script>  <span class="text-muted d-none d-sm-inline-block float-end">Design & Developed By  <i
-  class="mdi mdi-heart text-danger"></i> by DevTeam</span>
+  &copy; 
+    <script>
+        document.write(new Date().getFullYear())
+    </script>
+    Copyrights by Sarv Sewa Trust. All Rights Reserved.
 
 </footer>
 </div>

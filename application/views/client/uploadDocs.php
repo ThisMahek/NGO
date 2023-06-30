@@ -46,7 +46,7 @@
                                         onchange="preview(this,'image_error1','image1')" hidden require />
                                     <img src="<?=base_url().$img?>" alt="" height="110" width="90"
                                         class="image" id="image1">
-                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
+                                    <br><label class="btn-upload btn btn-outline-success mt-4" for="input-file">Click here
                                         to Upload Image</label>
                                         <span id="image_error1"></span>
 
@@ -61,7 +61,7 @@
                                     onchange="preview(this,'image_error2','image2')" hidden require />
                                         <img src="<?=base_url().$img2?>" alt="" height="110" width="90"
                                         class="image" id="image2">
-                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file2">Click here
+                                        <br><label class="btn-upload btn btn-outline-success mt-4" for="input-file2">Click here
                                         to Upload Image</label>
                                         <span id="image_error2"></span>
                                 </div>
@@ -75,7 +75,7 @@
                                     onchange="preview(this,'image_error3','image3')"  hidden require />
                                     <img src="<?=base_url().$img3?>" alt="" height="110" width="90"
                                         class="image" id="image3">
-                                    <label class="btn-upload btn btn-outline-success mt-4" for="input-file3">Click here
+                                        <br><label class="btn-upload btn btn-outline-success mt-4" for="input-file3">Click here
                                         to Upload Image</label>
                                         <span id="image_error3"></span>
                                 </div>
