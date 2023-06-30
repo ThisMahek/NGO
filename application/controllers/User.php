@@ -16,6 +16,7 @@ class User extends CI_Controller
 	}
 	public function index()
 	{
+		
 		$data['title'] = 'Sarv Seva - Home';
 		$data['pageName'] = 'Home';
 		$data['slider_data'] = $this->UM->show_slider_data();
@@ -38,10 +39,11 @@ class User extends CI_Controller
 		$this->load->view('ngoList', $data);
 
 	}
-	public function ngoDetails()
+	public function ngoDetails($id)
 	{
 		$data['title'] = 'Sarv Seva - NGO Details';
 		$data['pageName'] = 'NGO Details';
+		$data['ngo_data'] = $this->UM->show_organisation_data_by_id($id);		
 		$this->load->view('ngoDetails', $data);
 
 	}

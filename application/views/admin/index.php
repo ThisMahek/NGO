@@ -31,8 +31,8 @@
                                             <div class="row d-flex justify-content-center">
                                                 <div class="col-9">
                                                     <p class="text-dark mb-0 fw-semibold">Total Register NGO's</p>
-                                                    <h3 class="my-1 font-20 fw-bold">24</h3>
-                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success">20-01-2023 10:00 AM</span></p>
+                                                    <h3 class="my-1 font-20 fw-bold"><?=$show_total->total?></h3>
+                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success"><?=$update_at_total->date?></span></p>
                                                 </div>
                                                 <div class="col-3 align-self-center">
                                                     <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
@@ -49,8 +49,8 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col-9">
                                                     <p class="text-dark mb-0 fw-semibold">Total Approved NGO's</p>
-                                                    <h3 class="my-1 font-20 fw-bold">24</h3>
-                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success">20-01-2023 10:00 AM</span></p>
+                                                    <h3 class="my-1 font-20 fw-bold"><?=$show_approve->total?></h3>
+                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success"><?=$update_at_approve->date?></span></p>
                                                 </div>
                                                 <div class="col-3 align-self-center">
                                                     <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
@@ -67,8 +67,8 @@
                                             <div class="row d-flex justify-content-center">                                                
                                                 <div class="col-9">
                                                     <p class="text-dark mb-0 fw-semibold">Total Rejected NGO's</p>
-                                                    <h3 class="my-1 font-20 fw-bold">24</h3>
-                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success">20-01-2023 10:00 AM</span></p>
+                                                    <h3 class="my-1 font-20 fw-bold"><?=$show_reject->total?></h3>
+                                                    <p class="mb-0 text-truncate text-muted">Updated On : <span class="text-success"><?=isset($update_at_reject->date)?$update_at_reject->date:date('d-m-Y h:i:A')?></span></p>
                                                 </div>
                                                 <div class="col-3 align-self-center">
                                                     <div class="d-flex justify-content-center align-items-center thumb-md bg-light-alt rounded-circle mx-auto">
@@ -101,20 +101,31 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php
+                                                $i=1;
+                                                foreach($show_requirement as $row){
+                                                
+                                                ?>
                                                     <tr>
                                                         <td>
                                                             <?= $i++ ?>
                                                         </td>
                                                         <td><?= $row->title ?></td>
-                                                        <td><?= $row->organisation_name ?></td>
+                                                        <td><?= show_organisation_name($row->user_id) ?></td>
                                                         <td><?= $row->requirement ?></td>
                                                         <td><a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewDescription<?=$row->id ?>"><i class="fa fa-eye"></i></a></td>
                                                         <td class="text-<?php echo ($row->status == 1) ? 'success' : 'danger' ?>"><?php echo ($row->status == 1) ? 'Active' : 'Inactive' ?></td>
                                                         <td>
-                                                        <a href="<?=base_url('AdminBackend/change_ngo_status/'.$row->id.'/0')?>"><button
-                                                            class="btn waves-effect waves-light btn-success  btn-icon btn-custom" onclick="return confirm('Are you sure you want to reject this ?');">Approved</button>
-                                                        </a>
-                                                        </td>
+                                           <?php if($row->status==0){?>
+                                           <a href="<?=base_url('AdminBackend/change_requirement_status/'.$row->id.'/1')?>"><button
+                                             class="btn waves-effect waves-light btn-danger btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to approve this ?');">Reject</button>
+                                          </a>
+                                          <?php }else { ?>
+                                          <a href="<?=base_url('AdminBackend/change_requirement_status/'.$row->id.'/0')?>"><button
+                                             class="btn waves-effect waves-light btn-success btn-xs btn-icon btn-custom" onclick="return confirm('Are you sure you want to reject this ?');">Approved</button>
+                                          </a>
+                                          <?php }?>
+                                            <td>
                                                     </tr>
                                                     <!-- ===========View Description Modal============ -->
                                                     <div class="modal fade" id="viewDescription<?=$row->id?>" tabindex="-1"
@@ -134,6 +145,7 @@
                                                         </div>
                                                     </div>
                                                     <!-- ======================================== -->
+                                                    <?php }?>
                                             </tbody>
                                         </table>
                                     </div>

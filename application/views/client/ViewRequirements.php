@@ -57,7 +57,7 @@
                                                 <?= $i++ ?>
                                             </td>
                                             <td><?= $row->title ?></td>
-                                            <td><?= $row->organisation_name ?></td>
+                                            <td><?=show_organisation_name($row->user_id) ?></td>
                                             <td><?= $row->requirement ?></td>
                                             <td><a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewDescription<?=$row->id ?>"><i class="fa fa-eye"></i></a></td>
                                             <td class="text-<?php echo ($row->status == 1) ? 'success' : 'danger' ?>"><?php echo ($row->status == 1) ? 'Active' : 'Inactive' ?></td>

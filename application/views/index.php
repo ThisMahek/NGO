@@ -163,7 +163,7 @@
                                         <div class="swiper-slide">
                                             <div class="history-card">
                                                 <div class="card-title mb-30">
-                                                    <p class="fsz-13px color-main"><?=$a->organisation_name?> </p>
+                                                    <p class="fsz-13px color-main"><?=show_organisation_name($a->user_id)?> </p>
                                                     <h5 class="fsz-22px fw-bold"><?=$a->title?></h5>
                                                 </div>
                                                 <div class="text fsz-14px color-666 mb-20">

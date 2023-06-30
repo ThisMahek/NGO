@@ -54,29 +54,28 @@ class Admin_model extends CI_Model
     {
         return $this->db->where(['status' => 1])->get('setting')->row();
     }
-    public function show_blank_value()
-    {
-        $query = "SELECT * FROM organisation WHERE 
-  ('application_no' IS NULL OR 'application_no' = ' ') OR
-  ('it_pan' IS NULL OR 'it_pan' = '') OR
-  ('application_no' IS NULL OR 'application_no' = '') OR
-  ('website_url' IS NULL OR 'website_url' = '') OR
-  ('person_name' IS NULL OR 'person_name' = '') OR
-  ('designation' IS NULL OR 'designation' = '') OR
-  ('contact_person' IS NULL OR 'contact_person' = '') OR
-  ('cp_designation' IS NULL OR 'cp_designation' = '') OR
-  ('cp_email_id' IS NULL OR 'cp_email_id' = '') OR
-  ('cp_descriptions' IS NULL OR 'cp_descriptions' = '') OR
-  ('registration_as' IS NULL OR 'registration_as' = '') OR
-  ('registration_no' IS NULL OR 'registration_no' = '') OR
-  ('address_proof' IS NULL OR 'address_proof' = '') OR
-  ('state' IS NULL OR 'state' = '') OR
-  ('document' IS NULL OR 'document' = '') OR
-  ('organisation_logo' IS NULL OR 'organisation_logo' = '') OR
-  ('pan_registration_document' IS NULL OR 'pan_registration_document	' = '') OR
-  ('registration_date' IS NULL OR 'registration_date' = '') OR
-  ('city' IS NULL OR 'city' = '') ";
-        return $this->db->query($query)->row();
+    public function show_updated_at_register_count($status){
+        if($status=='2'){
+      $array=array('status!='=>($status));
+        }else{
+            $array=array('status'=>$status);
+        }
+       return $this->db->select('DATE_FORMAT(updated_at," %d-%m-%Y %h:%i %p") as date')->where( $array)->order_by('updated_at','DESC')->limit(1)->get('organisation')->row();
+
     }
+    public function show_ngo_count($status){
+        if($status=='2'){
+      $array=array('status!='=>($status));
+        }else{
+            $array=array('status'=>$status);
+        }
+       return $this->db->select('COUNT(id) as total')->where( $array)->order_by('updated_at','DESC')->limit(1)->get('organisation')->row();
+
+    }
+    public function show_requirement()
+      {
+          return $this->db->select('requirement.*')->where(['status!=' => 2])->get('requirement')->result();
+      }
+      
 }
 ?>

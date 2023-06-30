@@ -29,7 +29,7 @@
                                             <div class="row align-items-center justify-content-between">
                                                 <div class="col-lg-12">
                                                     <div class="info mt-4 mt-lg-0">
-                                                        <p class="fsz-13px color-main"><?=$requirement_data->organisation_name?></p>
+                                                        <p class="fsz-13px color-main"><?=show_organisation_name($requirement_data->user_id)?></p>
                                                         <h2 class="fsz-30px mb-40"> <?=$requirement_data->requirement	?> </h2>
                                                         <div class="row align-items-center justify-content-between">
                                                             <div class="col-lg-12">

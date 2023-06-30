@@ -22,6 +22,16 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'NGO - Admin | Dashboard';
 		$data['pageName'] = 'Dashboard';
+		$data['update_at_total']=$this->AM->show_updated_at_register_count(2);
+		$data['update_at_approve']=$this->AM->show_updated_at_register_count(1);
+		$data['update_at_reject']=$this->AM->show_updated_at_register_count(0);
+		$data['show_total']=$this->AM->show_ngo_count(2);
+		$data['show_approve']=$this->AM->show_ngo_count(1);
+		$data['show_reject']=$this->AM->show_ngo_count(0);
+		$data['show_requirement']=$this->AM->show_requirement();
+		// echo $this->db->last_query();die();
+		// echo "<pre>";
+		// print_r($data['show_requirement']);exit;
 		$this->load->view('admin/index', $data);
 	}
 	// =========================================
@@ -140,7 +150,7 @@ class Admin extends CI_Controller
 		$data['title'] = 'NGO - Admin | View Ngo';
 		$data['pageName'] = 'View Ngo';
 		$data['organisation']=$this->AM->show_organisation_data();
-		$data['blank']=$this->AM->show_blank_value();
+	//	$data['blank']=$this->AM->show_blank_value();
 		//echo $this->db->last_query();die();
 		//print_r($data['blank']);exit;
 		$this->load->view('admin/ViewNgo', $data);

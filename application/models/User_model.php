@@ -27,7 +27,7 @@ class User_model extends CI_Model
 
     }
     public function show_all_requirement_data($user_id){
-        return  $this->db->select('organisation.organisation_name,requirement.*')->join('organisation','organisation.user_id=requirement.user_id','left')->where(['requirement.user_id'=>$user_id,'requirement.status!='=>2])->get('requirement')->result();
+        return  $this->db->select('*')->where(['user_id'=>$user_id,'status!='=>2])->get('requirement')->result();
   
       }
       public function show_organisation_data_search_data($ngo_name)
@@ -45,7 +45,7 @@ class User_model extends CI_Model
       }
       public function show_requirement()
       {
-          return $this->db->select('organisation.organisation_name,requirement.*')->join('organisation','organisation.user_id=requirement.user_id','left')->where(['requirement.status' => 1])->get('requirement')->result();
+          return $this->db->select('*')->where(['status' => 1])->get('requirement')->result();
       }
       
       public function show_announcements_data()
@@ -59,6 +59,9 @@ class User_model extends CI_Model
       public function show_single_announcements_data($id){
         return $this->db->where(['status' => 1,'id'=>$id])->get('announcements')->row();
       }
-    
+    public function show_organisation_data_by_id($id){
+       return $this->db->where(['status'=>1,'id'=>$id])->get('organisation')->row();
+    }
+   
 }
 ?>

@@ -25,7 +25,7 @@
                                             <div class="col-md-10 col-7 m-auto">
                                                 <div class="content">
                                                     <h5 class="title mb-20"> 
-                                                        <a href="#">
+                                                        <a href="<?=base_url()?>user/ngoDetails/<?=$row->id?>">
                                                            <?=$row->organisation_name?>
                                                         </a> 
                                                     </h5>
@@ -33,7 +33,7 @@
                                                     <div class="meta-bot fsz-13px color-666">
                                                         <ul class="d-flex">
                                                             <li class="date me-5">
-                                                                <a href="#"><i class="la la-phone me-2"></i>+91- <?=$row->cp_mob_no?></a>
+                                                                <a href="#"><i class="la la-phone me-2"></i>+91- <?=$row->main_mob_no?></a>
                                                             </li>
                                                             <li class="comment me-5">
                                                                 <a href="#"><i class="la la-envelope me-2"></i>  <?=$row->ngo_email?></a>
