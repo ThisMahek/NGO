@@ -20,7 +20,7 @@ class User_model extends CI_Model
     }
     public function show_organisation_data($user_id)
     {
-        return $this->db->where(['status' => 1, 'user_id' => $user_id])->get('organisation')->row();
+        return $this->db->where(['status!=' => 2, 'user_id' => $user_id])->get('organisation')->row();
     }
     public function show_requirement_data($id){
       return  $this->db->select('organisation.organisation_name,requirement.*')->join('organisation','organisation.user_id=requirement.user_id','left')->where(['requirement.id'=>$id])->get('requirement')->row();

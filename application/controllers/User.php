@@ -113,7 +113,7 @@ class User extends CI_Controller
 				$this->session->set_flashdata('error', '<script>
             swal({
                 title: "User!",
-                text: "already exist",
+                text: "already exists",
                 icon: "warning",
                 button: "ok",
                 });
@@ -163,6 +163,10 @@ class User extends CI_Controller
 		$insert_array['cp_email_id'] = isset($_POST['cp_email_id']) ? $_POST['cp_email_id'] : $organisation_data->cp_email_id;
 		$insert_array['city'] = isset($_POST['city']) ? $_POST['city'] : $organisation_data->city;
 		$insert_array['state'] = isset($_POST['state']) ? $_POST['state'] : $organisation_data->state;
+		$insert_array['district'] = isset($_POST['district']) ? $_POST['district'] : $organisation_data->district;
+		$insert_array['pin'] = isset($_POST['pin']) ? $_POST['pin'] : $organisation_data->pin;
+		$insert_array['address'] = isset($_POST['address']) ? $_POST['address'] : $organisation_data->address;
+		$insert_array['main_mob_no'] = isset($_POST['main_mob_no']) ? $_POST['main_mob_no'] : $organisation_data->main_mob_no;
 		//start file uplaoded code
 		$file = $_FILES["address_proof_img"];
 		$MyFileName = "";

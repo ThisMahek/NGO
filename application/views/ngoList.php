@@ -42,7 +42,7 @@
                                                                 <a href="#"><i class="la la-globe me-2"></i> <?=$row->website_url?></a>
                                                             </li>
                                                             <li class="comment">
-                                                                <a href="#"><i class="la la-map-marker me-2"></i>  <?=$row->address?> </a>
+                                                                <a href="#"><i class="la la-map-marker me-2"></i> <?=$row->address?> <?=$row->district?> <?=$row->city?>  (<?=$row->state?>) </a>
                                                             </li>
                                                         </ul>
                                                     </div>

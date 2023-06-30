@@ -139,13 +139,32 @@
 			'Raipur',
 			'Surguja',
 	],
-'Dadra and Nagar Haveli'=>[
-			'Dadra and Nagar Haveli'
+'Dadra and Nagar Haveli and Daman and Diu'=>[
+		'Silvassa (Dadra and Nagar Haveli)',
+		'Daman (Daman and Diu)',
+		'Diu (Daman and Diu)',
+		'Bhimpore (Daman and Diu)',
+		'Dunetha (Daman and Diu)',
+		'Kachigam (Dadra and Nagar Haveli)',
+		'Khanvel (Dadra and Nagar Haveli)',
+		'Amli (Dadra and Nagar Haveli)',
+		'Rakholi (Dadra and Nagar Haveli)',
+		'Naroli (Dadra and Nagar Haveli)',
+		'Vapi (Dadra and Nagar Haveli)',
+		'Bhenslore (Dadra and Nagar Haveli)',
+		'Chikhli (Dadra and Nagar Haveli)',
+		'Khadoli (Dadra and Nagar Haveli)',
+		'Umarkui (Dadra and Nagar Haveli)',
+		'Kharadpada (Dadra and Nagar Haveli)',
+		'Samarvarni (Dadra and Nagar Haveli)',
+		'Amboli (Daman and Diu)',
+		'Galonda (Daman and Diu)',
+		'Magarwada (Daman and Diu)',
 ],
-'Daman and Diu'=>[
-			'Daman',
-			'Diu',
-],
+// 'Daman and Diu'=>[
+// 			'Daman',
+// 			'Diu',
+// ],
 'Delhi'=>[
 			'Central Delhi',
 			'East Delhi',
@@ -453,7 +472,7 @@
 			'Wokha',
 			'Zunheboto',
 	],
-'Orissa'=>[
+'Odisha'=>[
 			'Angul',
 			'Boudh (Bauda)',
 			'Bhadrak',
@@ -671,7 +690,17 @@
 			'Shravasti',
 			'Unnao',
 			'Varanasi',
+			'Orai',
 	],
+	'Ladakh'=>[
+		'Leh', 'Kargil', 'Diskit', 'Nubra', 'Alchi', 'Lamayuru', 'Hanle', 'Turtuk', 'Hemis', 'Phyang', 'Likir', 'Shey', 'Thiksey', 'Stok', 'Choglamsar', 'Skurbuchan', 'Sankoo', 'Zanskar', 'Drass', 'Nyoma'
+	],
+	'Lakshadweep'=>[
+		'Kavaratti', 'Minicoy', 'Agatti', 'Andrott', 'Amini', 'Kadmat', 'Kalpeni', 'Kiltan', 'Chetlat', 'Bitra'
+],
+'Andaman and Nicobar Islands'=>[
+	'Port Blair', 'Diglipur', 'Mayabunder', 'Rangat', 'Hut Bay', 'Wandoor', 'Neil Island', 'Havelock Island', 'Car Nicobar', 'Campbell Bay', 'Long Island', 'Great Nicobar'
+],
 'Uttarakhand'=>[
 			'Almora',
 			'Bageshwar',

@@ -345,4 +345,54 @@ class AdminBackend extends CI_Controller
             redirect(base_url() . "admin/$uri");
 		}
 	}
+    public function delete_ngo($id)
+    {
+        $array['status'] = 2;
+        $response = $this->CM->data_update('organisation', $array, array('id' => $id));
+        if ($response) {
+            $this->session->set_flashdata('success', '<script>
+            swal({
+                title: "Organization",
+                text: "deleted successfully!",
+                icon: "success",
+                });
+            </script>');
+        } else {
+            $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Unable to delete Organization.",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+        }
+        redirect(base_url()."admin/ViewNgo");
+    }
+    public function change_ngo_status($id,$status)
+    {
+    //    $status= $this->input->post('status');
+    //    echo $status;die();
+        $array['status'] =$status;
+        $response = $this->CM->data_update('organisation', $array, array('id' => $id));
+        if ($response) {
+            $this->session->set_flashdata('success', '<script>
+            swal({
+                title: "Status",
+                text: "Changed successfully!",
+                icon: "success",
+                });
+            </script>');
+        } else {
+            $this->session->set_flashdata('error', '<script>
+            swal({
+                title: "Sorry!",
+                text: "Unable to change status.",
+                icon: "warning",
+                button: "ok",
+                });
+            </script>');
+        }
+        redirect(base_url()."admin/ViewNgo");
+    }
 }

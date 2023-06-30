@@ -258,21 +258,23 @@
                             <div class="col-12 col-md-9  pb-3">
                                 <input type="number" class="form-control bdr-bottom" id="otp_id"
                                     placeholder="Enter OTP" required>
+                                    <span id="otp_error"></span>
                             </div>
                             <div class="col-12 col-md-3 text-end mt--40">
                                 <button type="button" class="btn btn-outline-secondary w-100 btn-sm  p-2"
                                     onclick="showPassword()">Verify</button>
+                                   
                             </div>
                         </div>
                         <div class="row text-center align-items-center" style="display:none" id="passwordDiv">
                             <div class="col-12 col-md-12  pb-3">
                                 <input type="password" name="password" required id="password"
-                                    class="form-control bdr-bottom" placeholder="Enter Password">
+                                    class="form-control bdr-bottom" placeholder="Enter Password" required>
                             </div>
                             <div class="col-12 col-md-12  pb-3">
                                 <input type="password" id="confirm_password" required class="form-control bdr-bottom"
                                     oninput="matchPassword('password','confirm_password','password_error','password_id')"
-                                    placeholder="Re-Type Password">
+                                    placeholder="Re-Type Password" required>
                                 <span id="password_error"></span>
                             </div>
                             <div class="col-12 col-md-12 text-end">
@@ -290,6 +292,7 @@
     <script>
         function showOtp() {
             var email = document.getElementById('email').value;
+            if(email!=""){
             $.ajax({
                 url: "<?= base_url() ?>user/send_otp",
                 method: "POST",
@@ -301,29 +304,42 @@
                     }
                 }
             });
+            document.getElementById('email_error').innerHTML="";
+            document.getElementById('email_error').style.color="";
+        }else{
+            document.getElementById('email_error').innerHTML="Email field is required";
+            document.getElementById('email_error').style.color="red";
+        }
         }
         function showPassword() {
 
             var otp_id = document.getElementById('otp_id').value;
             var email = document.getElementById('email').value;
             var msg = document.getElementById('show_msg');
-            document.getElementById('passwordDiv').style.display = "flex";
+            if(otp_id){
             $.ajax({
                 url: "<?= base_url() ?>user/verify_otp",
                 method: "POST",
                 data: { otp_id: otp_id, email: email },
                 success: function (response) {
-                    if (response == 1) {
+                    if (response == 1 ) {
                         document.getElementById('passwordDiv').style.display = "flex";
                         msg.innerHTML = "";
                         msg.style.color = "";
-                    }
-                    else {
-                        msg.innerHTML = "Enter Valid Otp";
+                    }else{
+                        msg.innerHTML = "Invalid otp";
                         msg.style.color = "red";
                     }
+                    
                 }
             });
+            document.getElementById('otp_error').innerHTML="";
+            document.getElementById('otp_error').style.color="";
+        }
+        else{
+                        document.getElementById('otp_error').innerHTML="OTP field is required";
+                        document.getElementById('otp_error').style.color="red";
+        }
         }
 
     </script>
