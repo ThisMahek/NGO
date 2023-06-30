@@ -16,7 +16,7 @@
                             </li>
                             <li>
                                 <i class="la la-phone me-2"></i>
-                                <span>+<?=$data->alt_mob_no?></span>
+                                <span>+91-<?=$data->mob_no?> / <?=$data->alt_mob_no?></span>
                             </li>
                             <li>
                                 <i class="la la-envelope me-2"></i>

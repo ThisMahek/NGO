@@ -38,6 +38,13 @@ class User extends CI_Controller
 		$this->load->view('ngoList', $data);
 
 	}
+	public function ngoDetails()
+	{
+		$data['title'] = 'Sarv Seva - NGO Details';
+		$data['pageName'] = 'NGO Details';
+		$this->load->view('ngoDetails', $data);
+
+	}
 	public function aboutUs($id)
 	{
 		$data['title'] = 'Sarv Seva -About Us';

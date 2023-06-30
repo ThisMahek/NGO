@@ -207,21 +207,18 @@
                                     <h2 class="title mb-20">About Us</h2>
                                     <div class="text color-666 mb-20 ">
                                         <?php
-                                    $string = strip_tags($about_us->content);
-                                                    if (strlen($string) >150) {
-                                                        // truncate string
-                                                        $stringCut = substr($string, 0, 100);
-                                                        $endPoint = strrpos($stringCut, ' ');
-                                                        //if the string doesn't contain any space then it will cut without word basis.
-                                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                                        $string .= '[...]';
-                                                    }
-                                                    echo $string;
-                                                ?>
-                                  
-                                    
+                                            $string = strip_tags($about_us->content);
+                                            if (strlen($string) >150) {
+                                                // truncate string
+                                                $stringCut = substr($string, 0, 100);
+                                                $endPoint = strrpos($stringCut, ' ');
+                                                //if the string doesn't contain any space then it will cut without word basis.
+                                                $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                                $string .= '[...]';
+                                            }
+                                            echo $string;
+                                        ?>
                                         <br><br><a href='<?=base_url("$about_us->url/$about_us->id")?>' class="ancor-tag">Read More</a>
-
                                     </div>
                                 </div>
                             </div>
@@ -249,10 +246,10 @@
                             <div class="col-12 col-md-9  pb-3">
                                 <input type="email" name="email" id="email" class="form-control bdr-bottom"
                                     placeholder="Enter Email Id"
-                                    oninput="validate_email('email','email_error','otp_btn')">
+                                    oninput="validate_email('email','email_error','otp_btn')" required>
                                 <span id="email_error"></span>
                             </div>
-                            <div class="col-12 col-md-3 text-end">
+                            <div class="col-12 col-md-3 text-end mt--40">
                                 <button type="button" class="btn btn-outline-secondary w-100 p-2" onclick="showOtp()"
                                     id="otp_btn"> Sent OTP</button>
                             </div>
@@ -260,9 +257,9 @@
                         <div class="row text-center align-items-center" style="display:none" id="otpDiv">
                             <div class="col-12 col-md-9  pb-3">
                                 <input type="number" class="form-control bdr-bottom" id="otp_id"
-                                    placeholder="Enter OTP">
+                                    placeholder="Enter OTP" required>
                             </div>
-                            <div class="col-12 col-md-3 text-end">
+                            <div class="col-12 col-md-3 text-end mt--40">
                                 <button type="button" class="btn btn-outline-secondary w-100 btn-sm  p-2"
                                     onclick="showPassword()">Verify</button>
                             </div>

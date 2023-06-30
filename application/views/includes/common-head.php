@@ -53,4 +53,5 @@
         .btn-search{background: transparent;border: none;}
         .ancor-tag{font-size: 14px;text-transform: uppercase;letter-spacing: 2px;font-weight: 500;}
         .ancor-tag:hover {color: var(--color-main);}
+        .mt--40{margin-top: -40px;}
     </style>
