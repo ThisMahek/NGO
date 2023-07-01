@@ -25,7 +25,7 @@ $data2=$this->db->get('setting')->row();?>
                 foreach($data as $row){
                 ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="<?=base_url()?><?=$row->url?>/<?=$row->id?>" >
+                    <a class="nav-link" href="<?=base_url()?>nav/<?=$row->id?>" >
                         <?=$row->tab_name?>
                     </a>
                 </li>

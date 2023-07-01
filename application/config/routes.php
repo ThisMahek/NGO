@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['ngoList'] = 'user/ngoList';
 $route['aboutUs'] = 'user/aboutUs';
 $route['page/(:any)'] = "admin/aboutUs/$1";
+$route['nav/(:any)'] = "user/aboutUs/$1";
 $route['admin/login'] = "AdminLogin/login";
 $route['admin/logout'] = "AdminLogin/LogoutAdmin";
 $route['client'] = "client/index";

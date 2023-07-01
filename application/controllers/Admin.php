@@ -29,9 +29,6 @@ class Admin extends CI_Controller
 		$data['show_approve']=$this->AM->show_ngo_count(1);
 		$data['show_reject']=$this->AM->show_ngo_count(0);
 		$data['show_requirement']=$this->AM->show_requirement();
-		// echo $this->db->last_query();die();
-		// echo "<pre>";
-		// print_r($data['show_requirement']);exit;
 		$this->load->view('admin/index', $data);
 	}
 	// =========================================

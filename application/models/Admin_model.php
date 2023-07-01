@@ -74,7 +74,7 @@ class Admin_model extends CI_Model
     }
     public function show_requirement()
       {
-          return $this->db->select('requirement.*')->where(['status!=' => 2])->get('requirement')->result();
+          return $this->db->select('requirement.*')->where(['status!=' => 2])->order_by('id','DESC')->get('requirement')->result();
       }
       
 }

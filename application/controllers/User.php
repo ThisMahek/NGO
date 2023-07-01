@@ -49,9 +49,11 @@ class User extends CI_Controller
 	}
 	public function aboutUs($id)
 	{
+		$about= $this->db->where(['id' => $id, 'status' => 'Active'])->get('nav')->row();
 		$data['title'] = 'Sarv Seva -About Us';
-		$data['pageName'] = 'About Us';
-		$data['about'] = $this->db->where(['id' => $id, 'status' => 'Active'])->get('nav')->row();
+		$data['pageName'] = ucwords($about->tab_name);
+		$data['about']=$about;
+		//print_r($data['about']);exit;
 		$this->load->view('aboutUs', $data);
 
 	}
